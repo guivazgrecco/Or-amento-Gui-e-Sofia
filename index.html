@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_3.html -->
+<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_4.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,9 +33,11 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .bar-fill.warn { background: #BA7517; }
 .bar-fill.bad { background: #E24B4A; }
 .rate-note { font-size: 11px; color: #aaa; margin-top: 8px; text-align: right; }
+
+/* Importador */
 .import-banner { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
 .import-title { font-size: 13px; font-weight: 500; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.import-banner textarea { width: 100%; font-size: 12px; font-family: 'Menlo','Consolas',monospace; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fafafa; color: #1a1a1a; resize: vertical; min-height: 100px; outline: none; line-height: 1.7; }
+.import-banner textarea { width: 100%; font-size: 12px; font-family: 'Menlo','Consolas',monospace; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fafafa; color: #1a1a1a; resize: vertical; min-height: 90px; outline: none; line-height: 1.7; }
 .import-banner textarea:focus { border-color: #185FA5; }
 .import-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
 .import-hint { font-size: 11px; color: #aaa; }
@@ -47,32 +49,49 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .import-fb { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; display: none; }
 .import-fb.ok  { display: block; background: #EAF3DE; color: #3B6D11; }
 .import-fb.err { display: block; background: #FCEBEB; color: #A32D2D; }
+
+/* Sections */
 .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
 @media (max-width: 680px) { .sections { grid-template-columns: 1fr; } }
 .section-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; }
 .section-full { grid-column: 1 / -1; }
-.section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.col-headers { display: grid; grid-template-columns: 1fr 80px 84px 140px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
-.col-h { font-size: 11px; color: #bbb; text-align: right; }
-.col-h:first-child { text-align: left; }
-.item-row { display: grid; grid-template-columns: 1fr 80px 84px 140px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
-.item-row:last-child { border-bottom: none; }
-.item-name { font-size: 13px; color: #1a1a1a; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
-.item-val { font-size: 13px; text-align: right; }
-.item-val.orc    { color: #aaa; }
-.item-val.over   { color: #A32D2D; font-weight: 500; }
-.item-val.realok { color: #0F6E56; font-weight: 500; }
-.item-val.zero   { color: #ccc; }
-.item-actions { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
-.quick-input { width: 54px; font-size: 11px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; color: #1a1a1a; outline: none; text-align: right; }
-.quick-input:focus { border-color: #185FA5; background: #fff; }
-.btn-add  { background: none; border: none; cursor: pointer; color: #1D9E75; font-size: 18px; padding: 2px; border-radius: 4px; line-height: 1; display: flex; align-items: center; }
-.btn-add:hover  { background: #EAF3DE; }
-.btn-edit { background: none; border: none; cursor: pointer; color: #aaa; font-size: 15px; padding: 2px; border-radius: 4px; display: flex; align-items: center; }
-.btn-edit:hover { color: #555; background: #f0f0f0; }
-.btn-del  { background: none; border: none; cursor: pointer; color: #aaa; font-size: 15px; padding: 2px; border-radius: 4px; display: flex; align-items: center; }
-.btn-del:hover  { color: #A32D2D; background: #FCEBEB; }
+.section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+
+/* Tabela de itens */
+.tbl { width: 100%; border-collapse: collapse; }
+.tbl thead tr th { font-size: 11px; color: #bbb; font-weight: 400; text-align: right; padding: 0 8px 6px; border-bottom: 1px solid #eee; }
+.tbl thead tr th:first-child { text-align: left; padding-left: 0; }
+.tbl thead tr th:last-child { padding-right: 0; }
+.tbl tbody tr { position: relative; }
+.tbl tbody tr:hover { background: #fafaf9; }
+.tbl tbody tr td { font-size: 13px; padding: 7px 8px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+.tbl tbody tr:last-child td { border-bottom: none; }
+.tbl tbody tr td:first-child { padding-left: 0; }
+.tbl tbody tr td:last-child { padding-right: 0; }
+.td-name { display: flex; align-items: center; gap: 6px; }
+.td-val { text-align: right; white-space: nowrap; }
+.td-val.orc    { color: #aaa; }
+.td-val.over   { color: #A32D2D; font-weight: 500; }
+.td-val.realok { color: #0F6E56; font-weight: 500; }
+.td-val.zero   { color: #ccc; }
+.td-quick { text-align: right; }
+.td-actions { text-align: right; white-space: nowrap; }
 .tag-brl { font-size: 10px; padding: 2px 5px; border-radius: 999px; background: #FAEEDA; color: #854F0B; white-space: nowrap; }
+
+/* Input rápido */
+.quick-row { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
+.quick-input { width: 60px; font-size: 12px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; color: #1a1a1a; outline: none; text-align: right; }
+.quick-input:focus { border-color: #185FA5; background: #fff; }
+.btn-add { background: none; border: none; cursor: pointer; color: #1D9E75; font-size: 18px; padding: 2px 3px; border-radius: 4px; line-height: 1; display: flex; align-items: center; }
+.btn-add:hover { background: #EAF3DE; }
+
+/* Botões de ação */
+.btn-edit { background: none; border: none; cursor: pointer; color: #bbb; font-size: 14px; padding: 3px 4px; border-radius: 4px; display: inline-flex; align-items: center; }
+.btn-edit:hover { color: #555; background: #f0f0f0; }
+.btn-del  { background: none; border: none; cursor: pointer; color: #bbb; font-size: 14px; padding: 3px 4px; border-radius: 4px; display: inline-flex; align-items: center; }
+.btn-del:hover  { color: #A32D2D; background: #FCEBEB; }
+
+/* Modal */
 .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
 .modal-bg.open { display: flex; }
 .modal { background: #fff; border-radius: 14px; border: 1px solid #e8e8e6; padding: 22px; width: 340px; max-width: 92vw; }
@@ -121,17 +140,15 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 
   <div class="import-banner">
     <div class="import-title"><i class="ti ti-file-import"></i> Importar dados via Claude</div>
-    <textarea id="import-text" placeholder="Cole aqui o texto gerado pelo Claude após analisar seu extrato:
-
+    <textarea id="import-text" placeholder="Cole aqui o texto gerado pelo Claude:
 MERCADO: 320.50 BRL
 DELIVERY: 45.00 USD
-RESTAURANTE_BAR: 89.00 USD
-GASOLINA: 200.00 BRL"></textarea>
+RESTAURANTE_BAR: 89.00 USD"></textarea>
     <div class="import-footer">
-      <span class="import-hint">Os valores serão somados ao realizado do mês selecionado.</span>
+      <span class="import-hint">Valores somados ao realizado do mês selecionado.</span>
       <div class="import-btns">
         <button class="btn-sec" onclick="limparImport()">Limpar</button>
-        <button class="btn-pri" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar ao dashboard</button>
+        <button class="btn-pri" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar</button>
       </div>
     </div>
     <div class="import-fb" id="import-fb"></div>
@@ -140,23 +157,27 @@ GASOLINA: 200.00 BRL"></textarea>
   <div class="sections">
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-coin"></i> Receitas</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="receitas-list"><div class="item-row"><span class="item-name">Salário Guilherme <span class="tag-brl">R$→$</span></span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Bolsa FAPESP (Sofia)</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Atendimentos (Sofia) <span class="tag-brl">R$→$</span></span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
+      <table class="tbl"><thead><tr>
+        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
+      </tr></thead><tbody id="receitas-list"><tr><td class="td-name">Salário Guilherme<span class="tag-brl">R$→$</span></td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Bolsa FAPESP (Sofia)</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Atendimentos (Sofia)<span class="tag-brl">R$→$</span></td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-home"></i> Despesas fixas</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="fixas-list"><div class="item-row"><span class="item-name">Aluguel</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Energia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gás</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Internet</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Tip (cachorro)</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Mercado</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Seguro do carro</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gasolina</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Terapia Guilherme</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Terapia Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Supervisão Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Cursos Gui</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Fies</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Investimento Clínica</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
+      <table class="tbl"><thead><tr>
+        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
+      </tr></thead><tbody id="fixas-list"><tr><td class="td-name">Aluguel</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Energia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gás</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Internet</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Tip (cachorro)</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Mercado</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Seguro do carro</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gasolina</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Terapia Guilherme</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Terapia Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Supervisão Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Cursos Gui</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Fies</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Investimento Clínica</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-shopping-cart"></i> Despesas variáveis</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="variaveis-list"><div class="item-row"><span class="item-name">Restaurante/Bar</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Delivery</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Medicamentos/Suplementos</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gastos pessoais Gui</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gastos pessoais Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
+      <table class="tbl"><thead><tr>
+        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
+      </tr></thead><tbody id="variaveis-list"><tr><td class="td-name">Restaurante/Bar</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Delivery</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Medicamentos/Suplementos</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gastos pessoais Gui</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gastos pessoais Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-sparkles"></i> Extras</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="extras-list"><div class="item-row"><span class="item-name">Eventualidades</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Presentes</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Compras pra casa</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Uber</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
+      <table class="tbl"><thead><tr>
+        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
+      </tr></thead><tbody id="extras-list"><tr><td class="td-name">Eventualidades</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Presentes</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Compras pra casa</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Uber</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
   </div>
 
@@ -191,53 +212,44 @@ var CATS = {
     {id:'atend',   nome:'Atendimentos (Sofia)', brl:true}
   ],
   fixas: [
-    {id:'aluguel',   nome:'Aluguel'},
-    {id:'energia',   nome:'Energia'},
-    {id:'gas',       nome:'Gás'},
-    {id:'internet',  nome:'Internet'},
-    {id:'tip',       nome:'Tip (cachorro)'},
-    {id:'mercado',   nome:'Mercado'},
-    {id:'seguro',    nome:'Seguro do carro'},
-    {id:'gasolina',  nome:'Gasolina'},
-    {id:'terp_gui',  nome:'Terapia Guilherme'},
-    {id:'terp_sof',  nome:'Terapia Sofia'},
-    {id:'superv',    nome:'Supervisão Sofia'},
-    {id:'cursos',    nome:'Cursos Gui'},
-    {id:'fies',      nome:'Fies'},
-    {id:'inv_cli',   nome:'Investimento Clínica'}
+    {id:'aluguel',   nome:'Aluguel'},      {id:'energia',  nome:'Energia'},
+    {id:'gas',       nome:'Gás'},           {id:'internet', nome:'Internet'},
+    {id:'tip',       nome:'Tip (cachorro)'},{id:'mercado',  nome:'Mercado'},
+    {id:'seguro',    nome:'Seguro do carro'},{id:'gasolina', nome:'Gasolina'},
+    {id:'terp_gui',  nome:'Terapia Guilherme'},{id:'terp_sof',nome:'Terapia Sofia'},
+    {id:'superv',    nome:'Supervisão Sofia'},{id:'cursos',  nome:'Cursos Gui'},
+    {id:'fies',      nome:'Fies'},          {id:'inv_cli',  nome:'Investimento Clínica'}
   ],
   variaveis: [
-    {id:'rest_bar',    nome:'Restaurante/Bar'},
-    {id:'delivery',    nome:'Delivery'},
-    {id:'med_suple',   nome:'Medicamentos/Suplementos'},
-    {id:'pessoal_gui', nome:'Gastos pessoais Gui'},
-    {id:'pessoal_sof', nome:'Gastos pessoais Sofia'}
+    {id:'rest_bar',   nome:'Restaurante/Bar'},
+    {id:'delivery',   nome:'Delivery'},
+    {id:'med_suple',  nome:'Medicamentos/Suplementos'},
+    {id:'pessoal_gui',nome:'Gastos pessoais Gui'},
+    {id:'pessoal_sof',nome:'Gastos pessoais Sofia'}
   ],
   extras: [
-    {id:'eventual',  nome:'Eventualidades'},
-    {id:'presentes', nome:'Presentes'},
-    {id:'casa',      nome:'Compras pra casa'},
-    {id:'uber',      nome:'Uber'}
+    {id:'eventual', nome:'Eventualidades'},{id:'presentes',nome:'Presentes'},
+    {id:'casa',     nome:'Compras pra casa'},{id:'uber',   nome:'Uber'}
   ]
 };
 
 var ID_MAP = {
-  SAL_GUI:'sal_gui', SALARIO_GUILHERME:'sal_gui', SALARIO:'sal_gui',
-  FAPESP:'fapesp', BOLSA_FAPESP:'fapesp',
-  ATEND:'atend', ATENDIMENTOS:'atend', ATENDIMENTOS_SOFIA:'atend',
-  ALUGUEL:'aluguel', ENERGIA:'energia', GAS:'gas', INTERNET:'internet',
-  TIP:'tip', MERCADO:'mercado', SEGURO:'seguro', SEGURO_CARRO:'seguro',
-  GASOLINA:'gasolina', TERP_GUI:'terp_gui', TERAPIA_GUILHERME:'terp_gui',
-  TERP_SOF:'terp_sof', TERAPIA_SOFIA:'terp_sof',
-  SUPERV:'superv', SUPERVISAO:'superv', SUPERVISAO_SOFIA:'superv',
-  CURSOS:'cursos', CURSOS_GUI:'cursos', FIES:'fies',
-  INV_CLI:'inv_cli', INVESTIMENTO_CLINICA:'inv_cli',
-  REST_BAR:'rest_bar', RESTAURANTE_BAR:'rest_bar', RESTAURANTE:'rest_bar', BAR:'rest_bar',
-  DELIVERY:'delivery', MED_SUPLE:'med_suple', MEDICAMENTOS:'med_suple', SUPLEMENTOS:'med_suple',
-  PESSOAL_GUI:'pessoal_gui', GASTOS_GUI:'pessoal_gui', GASTOS_PESSOAIS_GUI:'pessoal_gui',
-  PESSOAL_SOF:'pessoal_sof', GASTOS_SOFIA:'pessoal_sof', GASTOS_PESSOAIS_SOFIA:'pessoal_sof',
-  EVENTUAL:'eventual', EVENTUALIDADES:'eventual', PRESENTES:'presentes',
-  CASA:'casa', COMPRAS_CASA:'casa', UBER:'uber'
+  SAL_GUI:'sal_gui',SALARIO_GUILHERME:'sal_gui',SALARIO:'sal_gui',
+  FAPESP:'fapesp',BOLSA_FAPESP:'fapesp',
+  ATEND:'atend',ATENDIMENTOS:'atend',ATENDIMENTOS_SOFIA:'atend',
+  ALUGUEL:'aluguel',ENERGIA:'energia',GAS:'gas',INTERNET:'internet',
+  TIP:'tip',MERCADO:'mercado',SEGURO:'seguro',SEGURO_CARRO:'seguro',
+  GASOLINA:'gasolina',TERP_GUI:'terp_gui',TERAPIA_GUILHERME:'terp_gui',
+  TERP_SOF:'terp_sof',TERAPIA_SOFIA:'terp_sof',
+  SUPERV:'superv',SUPERVISAO:'superv',SUPERVISAO_SOFIA:'superv',
+  CURSOS:'cursos',CURSOS_GUI:'cursos',FIES:'fies',
+  INV_CLI:'inv_cli',INVESTIMENTO_CLINICA:'inv_cli',
+  REST_BAR:'rest_bar',RESTAURANTE_BAR:'rest_bar',RESTAURANTE:'rest_bar',BAR:'rest_bar',
+  DELIVERY:'delivery',MED_SUPLE:'med_suple',MEDICAMENTOS:'med_suple',SUPLEMENTOS:'med_suple',
+  PESSOAL_GUI:'pessoal_gui',GASTOS_GUI:'pessoal_gui',GASTOS_PESSOAIS_GUI:'pessoal_gui',
+  PESSOAL_SOF:'pessoal_sof',GASTOS_SOFIA:'pessoal_sof',GASTOS_PESSOAIS_SOFIA:'pessoal_sof',
+  EVENTUAL:'eventual',EVENTUALIDADES:'eventual',PRESENTES:'presentes',
+  CASA:'casa',COMPRAS_CASA:'casa',UBER:'uber'
 };
 
 var MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
@@ -249,288 +261,281 @@ var modalCurr = 'USD';
 function gerarMeses() {
   var sel = document.getElementById('mes-sel');
   for (var y = 2026; y <= 2027; y++) {
-    var mStart = y === 2026 ? 6 : 1;
-    for (var m = mStart; m <= 12; m++) {
-      var val = y + '-' + (m < 10 ? '0' : '') + m;
+    for (var m = (y===2026?6:1); m <= 12; m++) {
+      var val = y+'-'+(m<10?'0':'')+m;
       var opt = document.createElement('option');
       opt.value = val;
-      opt.textContent = MESES[m-1] + ' ' + y;
-      if (val === mesAtual) opt.selected = true;
+      opt.textContent = MESES[m-1]+' '+y;
+      if (val===mesAtual) opt.selected=true;
       sel.appendChild(opt);
     }
   }
 }
 
-function chave(mes, id) { return 'fin26usd_' + mes + '_' + id; }
+function chave(mes,id){ return 'fin26usd_'+mes+'_'+id; }
 
-function carregar(mes, id) {
-  try {
-    var s = localStorage.getItem(chave(mes, id));
-    return s ? JSON.parse(s) : {orc:0, real:0, currency:'USD'};
-  } catch(e) { return {orc:0, real:0, currency:'USD'}; }
+function carregar(mes,id){
+  try{ var s=localStorage.getItem(chave(mes,id)); return s?JSON.parse(s):{orc:0,real:0,currency:'USD'}; }
+  catch(e){ return {orc:0,real:0,currency:'USD'}; }
 }
 
-function salvar(mes, id, val) {
-  try { localStorage.setItem(chave(mes, id), JSON.stringify(val)); } catch(e) {}
+function salvar(mes,id,val){
+  try{ localStorage.setItem(chave(mes,id),JSON.stringify(val)); }catch(e){}
 }
 
-function toUSD(val, currency) {
-  return currency === 'BRL' ? val * brlToUsd : val;
+function toUSD(val,currency){ return currency==='BRL'?val*brlToUsd:val; }
+
+function fmtUSD(n){
+  return '$ '+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
 }
 
-function fmtUSD(n) {
-  return '$ ' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
-}
-
-function renderLista(containerId, items, mes) {
-  var el = document.getElementById(containerId);
-  el.innerHTML = '';
-  for (var i = 0; i < items.length; i++) {
+function renderLista(tbodyId, items, mes) {
+  var tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = '';
+  for (var i=0; i<items.length; i++) {
     var item = items[i];
     var v = carregar(mes, item.id);
-    var currency = v.currency || (item.brl ? 'BRL' : 'USD');
+    var currency = v.currency||(item.brl?'BRL':'USD');
     var orcUSD  = toUSD(v.orc,  currency);
     var realUSD = toUSD(v.real, currency);
-    var over = realUSD > orcUSD && orcUSD > 0;
-    var rc = v.real > 0 ? (over ? 'over' : 'realok') : 'zero';
-    var tag = (item.brl || currency === 'BRL') ? '<span class="tag-brl">R$→$</span>' : '';
-    var row = document.createElement('div');
-    row.className = 'item-row';
+    var over = realUSD>orcUSD && orcUSD>0;
+    var rc = v.real>0?(over?'over':'realok'):'zero';
 
-    var nameSpan = document.createElement('span');
-    nameSpan.className = 'item-name';
-    nameSpan.innerHTML = item.nome + (tag ? ' ' + tag : '');
+    var tr = document.createElement('tr');
 
-    var orcSpan = document.createElement('span');
-    orcSpan.className = 'item-val orc';
-    orcSpan.textContent = orcUSD > 0 ? fmtUSD(orcUSD) : '—';
+    // Nome
+    var tdName = document.createElement('td');
+    tdName.className = 'td-name';
+    tdName.textContent = item.nome;
+    if (item.brl||currency==='BRL') {
+      var tag = document.createElement('span');
+      tag.className = 'tag-brl';
+      tag.textContent = 'R$→$';
+      tdName.appendChild(tag);
+    }
 
-    var realSpan = document.createElement('span');
-    realSpan.className = 'item-val ' + rc;
-    realSpan.textContent = realUSD > 0 ? fmtUSD(realUSD) : '—';
+    // Orçado
+    var tdOrc = document.createElement('td');
+    tdOrc.className = 'td-val orc';
+    tdOrc.textContent = orcUSD>0?fmtUSD(orcUSD):'—';
 
-    var actDiv = document.createElement('div');
-    actDiv.className = 'item-actions';
+    // Realizado
+    var tdReal = document.createElement('td');
+    tdReal.className = 'td-val '+rc;
+    tdReal.textContent = realUSD>0?fmtUSD(realUSD):'—';
 
+    // + rápido
+    var tdQuick = document.createElement('td');
+    tdQuick.className = 'td-quick';
+    var qWrap = document.createElement('div');
+    qWrap.className = 'quick-row';
     var qInput = document.createElement('input');
     qInput.className = 'quick-input';
     qInput.type = 'number';
     qInput.placeholder = '0';
     qInput.min = '0';
     qInput.step = '0.01';
-    (function(mid, miid, inp, ibrl) {
-      inp.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') somarRapido(mid, miid, inp, ibrl);
-      });
-    })(mes, item.id, qInput, !!item.brl);
-
     var addBtn = document.createElement('button');
     addBtn.className = 'btn-add';
-    addBtn.title = 'Somar';
+    addBtn.title = 'Somar ao realizado';
     addBtn.innerHTML = '<i class="ti ti-circle-plus"></i>';
-    (function(mid, miid, inp, ibrl) {
-      addBtn.addEventListener('click', function() { somarRapido(mid, miid, inp, ibrl); });
-    })(mes, item.id, qInput, !!item.brl);
+    (function(mid,miid,inp,ibrl){
+      inp.addEventListener('keydown',function(e){ if(e.key==='Enter') somar(mid,miid,inp,ibrl); });
+      addBtn.addEventListener('click',function(){ somar(mid,miid,inp,ibrl); });
+    })(mes,item.id,qInput,!!item.brl);
+    qWrap.appendChild(qInput);
+    qWrap.appendChild(addBtn);
+    tdQuick.appendChild(qWrap);
 
+    // Ações (lápis + lixeira)
+    var tdAct = document.createElement('td');
+    tdAct.className = 'td-actions';
     var editBtn = document.createElement('button');
     editBtn.className = 'btn-edit';
-    editBtn.title = 'Editar total';
+    editBtn.title = 'Editar orçado e realizado';
     editBtn.innerHTML = '<i class="ti ti-pencil"></i>';
-    (function(mid, miid, mname, ibrl) {
-      editBtn.addEventListener('click', function() { abrirModal(mid, miid, mname, ibrl); });
-    })(mes, item.id, item.nome, !!item.brl);
-
     var delBtn = document.createElement('button');
     delBtn.className = 'btn-del';
     delBtn.title = 'Zerar realizado';
     delBtn.innerHTML = '<i class="ti ti-trash"></i>';
-    (function(mid, miid) {
-      delBtn.addEventListener('click', function() { zerarItem(mid, miid); });
-    })(mes, item.id);
+    (function(mid,miid,mname,ibrl){
+      editBtn.addEventListener('click',function(){ abrirModal(mid,miid,mname,ibrl); });
+      delBtn.addEventListener('click',function(){ zerarItem(mid,miid); });
+    })(mes,item.id,item.nome,!!item.brl);
+    tdAct.appendChild(editBtn);
+    tdAct.appendChild(delBtn);
 
-    actDiv.appendChild(qInput);
-    actDiv.appendChild(addBtn);
-    actDiv.appendChild(editBtn);
-    actDiv.appendChild(delBtn);
-
-    row.appendChild(nameSpan);
-    row.appendChild(orcSpan);
-    row.appendChild(realSpan);
-    row.appendChild(actDiv);
-    el.appendChild(row);
+    tr.appendChild(tdName);
+    tr.appendChild(tdOrc);
+    tr.appendChild(tdReal);
+    tr.appendChild(tdQuick);
+    tr.appendChild(tdAct);
+    tbody.appendChild(tr);
   }
 }
 
-function somarRapido(mes, id, input, isBrl) {
-  var valor = parseFloat(input.value);
-  if (!valor || valor <= 0) { input.focus(); return; }
-  var v = carregar(mes, id);
-  var currency = v.currency || (isBrl ? 'BRL' : 'USD');
-  salvar(mes, id, {orc: v.orc, real: (v.real || 0) + valor, currency: currency});
-  input.value = '';
+function somar(mes,id,input,isBrl){
+  var valor=parseFloat(input.value);
+  if(!valor||valor<=0){input.focus();return;}
+  var v=carregar(mes,id);
+  var currency=v.currency||(isBrl?'BRL':'USD');
+  salvar(mes,id,{orc:v.orc,real:(v.real||0)+valor,currency:currency});
+  input.value='';
   renderTudo(mesAtual);
 }
 
-function zerarItem(mes, id) {
-  if (!confirm('Zerar o realizado deste item?')) return;
-  var v = carregar(mes, id);
-  salvar(mes, id, {orc: v.orc, real: 0, currency: v.currency || 'USD'});
+function zerarItem(mes,id){
+  if(!confirm('Zerar o realizado deste item?'))return;
+  var v=carregar(mes,id);
+  salvar(mes,id,{orc:v.orc,real:0,currency:v.currency||'USD'});
   renderTudo(mesAtual);
 }
 
-function renderTudo(mes) {
-  renderLista('receitas-list',  CATS.receitas,  mes);
-  renderLista('fixas-list',     CATS.fixas,     mes);
-  renderLista('variaveis-list', CATS.variaveis, mes);
-  renderLista('extras-list',    CATS.extras,    mes);
+function renderTudo(mes){
+  renderLista('receitas-list', CATS.receitas,  mes);
+  renderLista('fixas-list',    CATS.fixas,     mes);
+  renderLista('variaveis-list',CATS.variaveis, mes);
+  renderLista('extras-list',   CATS.extras,    mes);
   atualizarKPIs(mes);
 }
 
-function somaGrupo(grupo, mes) {
-  var orc = 0, real = 0;
-  for (var i = 0; i < grupo.length; i++) {
-    var v = carregar(mes, grupo[i].id);
-    var c = v.currency || (grupo[i].brl ? 'BRL' : 'USD');
-    orc  += toUSD(v.orc,  c);
-    real += toUSD(v.real, c);
+function somaGrupo(grupo,mes){
+  var orc=0,real=0;
+  for(var i=0;i<grupo.length;i++){
+    var v=carregar(mes,grupo[i].id);
+    var c=v.currency||(grupo[i].brl?'BRL':'USD');
+    orc+=toUSD(v.orc,c); real+=toUSD(v.real,c);
   }
-  return {orc: orc, real: real};
+  return {orc:orc,real:real};
 }
 
-function atualizarKPIs(mes) {
-  var rec  = somaGrupo(CATS.receitas,  mes);
-  var fix  = somaGrupo(CATS.fixas,     mes);
-  var vari = somaGrupo(CATS.variaveis, mes);
-  var ext  = somaGrupo(CATS.extras,    mes);
-  var desp  = fix.real + vari.real + ext.real;
-  var saldo = rec.real - desp;
-  var metaUSD = 10000 * brlToUsd;
-  var pct = Math.min(100, Math.round((saldo / metaUSD) * 100));
-
-  document.getElementById('kpi-receita').textContent  = fmtUSD(rec.real);
-  document.getElementById('kpi-despesas').textContent = fmtUSD(desp);
-  document.getElementById('kpi-saldo').textContent    = (saldo < 0 ? '−' : '') + fmtUSD(saldo);
-  document.getElementById('kpi-saldo-card').className = 'kpi ' + (saldo >= 0 ? 'ok' : 'danger');
-  document.getElementById('kpi-meta-val').textContent = fmtUSD(metaUSD);
-  var diff = saldo - metaUSD;
-  document.getElementById('kpi-meta-sub').textContent = diff >= 0 ? '✓ sobram ' + fmtUSD(diff) : 'faltam ' + fmtUSD(Math.abs(diff));
-  document.getElementById('kpi-meta-card').className  = 'kpi ' + (diff >= 0 ? 'ok' : 'danger');
-  document.getElementById('meta-pct').textContent = Math.max(0, pct) + '%';
-  document.getElementById('meta-bar-label').textContent = 'Progresso para meta de ' + fmtUSD(metaUSD) + ' (≈ R$ 10.000)';
-  var bar = document.getElementById('meta-bar');
-  bar.style.width = Math.max(0, pct) + '%';
-  bar.className = 'bar-fill ' + (pct >= 100 ? 'ok' : pct >= 60 ? 'warn' : 'bad');
+function atualizarKPIs(mes){
+  var rec =somaGrupo(CATS.receitas, mes);
+  var fix =somaGrupo(CATS.fixas,    mes);
+  var vari=somaGrupo(CATS.variaveis,mes);
+  var ext =somaGrupo(CATS.extras,   mes);
+  var desp=fix.real+vari.real+ext.real;
+  var saldo=rec.real-desp;
+  var metaUSD=10000*brlToUsd;
+  var pct=Math.min(100,Math.round((saldo/metaUSD)*100));
+  document.getElementById('kpi-receita').textContent =fmtUSD(rec.real);
+  document.getElementById('kpi-despesas').textContent=fmtUSD(desp);
+  document.getElementById('kpi-saldo').textContent   =(saldo<0?'−':'')+fmtUSD(saldo);
+  document.getElementById('kpi-saldo-card').className='kpi '+(saldo>=0?'ok':'danger');
+  document.getElementById('kpi-meta-val').textContent=fmtUSD(metaUSD);
+  var diff=saldo-metaUSD;
+  document.getElementById('kpi-meta-sub').textContent=diff>=0?'✓ sobram '+fmtUSD(diff):'faltam '+fmtUSD(Math.abs(diff));
+  document.getElementById('kpi-meta-card').className ='kpi '+(diff>=0?'ok':'danger');
+  document.getElementById('meta-pct').textContent=Math.max(0,pct)+'%';
+  document.getElementById('meta-bar-label').textContent='Progresso para meta de '+fmtUSD(metaUSD)+' (≈ R$ 10.000)';
+  var bar=document.getElementById('meta-bar');
+  bar.style.width=Math.max(0,pct)+'%';
+  bar.className='bar-fill '+(pct>=100?'ok':pct>=60?'warn':'bad');
 }
 
-function processarImport() {
-  var txt = document.getElementById('import-text').value.trim();
-  var fb  = document.getElementById('import-fb');
-  if (!txt) { fb.className = 'import-fb err'; fb.textContent = 'Cole o texto gerado pelo Claude antes de aplicar.'; return; }
-  var linhas = txt.split('\n');
-  var aplicados = [], ignorados = [];
-  for (var i = 0; i < linhas.length; i++) {
-    var linha = linhas[i].trim();
-    if (!linha || linha.indexOf(':') < 0) continue;
-    var match = linha.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);
-    if (!match) continue;
-    var k     = match[1].toUpperCase().replace(/\s+/g, '_');
-    var valor = parseFloat(match[2].replace(',', '.'));
-    var moeda = match[3] ? match[3].toUpperCase() : 'USD';
-    var id    = ID_MAP[k];
-    if (!id || isNaN(valor)) { ignorados.push(k); continue; }
-    var v = carregar(mesAtual, id);
-    salvar(mesAtual, id, {orc: v.orc, real: (v.real || 0) + valor, currency: moeda});
-    aplicados.push(k);
+function processarImport(){
+  var txt=document.getElementById('import-text').value.trim();
+  var fb=document.getElementById('import-fb');
+  if(!txt){fb.className='import-fb err';fb.textContent='Cole o texto do Claude antes de aplicar.';return;}
+  var linhas=txt.split('\n');
+  var ok=[],ig=[];
+  for(var i=0;i<linhas.length;i++){
+    var l=linhas[i].trim();
+    if(!l||l.indexOf(':')<0)continue;
+    var m=l.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);
+    if(!m)continue;
+    var k=m[1].toUpperCase().replace(/\s+/g,'_');
+    var valor=parseFloat(m[2].replace(',','.'));
+    var moeda=m[3]?m[3].toUpperCase():'USD';
+    var id=ID_MAP[k];
+    if(!id||isNaN(valor)){ig.push(k);continue;}
+    var v=carregar(mesAtual,id);
+    salvar(mesAtual,id,{orc:v.orc,real:(v.real||0)+valor,currency:moeda});
+    ok.push(k);
   }
   renderTudo(mesAtual);
-  if (aplicados.length > 0) {
-    fb.className = 'import-fb ok';
-    fb.textContent = '✓ ' + aplicados.length + ' categoria(s) atualizada(s): ' + aplicados.join(', ') +
-      (ignorados.length ? '  ·  Ignoradas: ' + ignorados.join(', ') : '');
+  if(ok.length>0){
+    fb.className='import-fb ok';
+    fb.textContent='✓ '+ok.length+' categoria(s) atualizada(s): '+ok.join(', ')+(ig.length?'  ·  Ignoradas: '+ig.join(', '):'');
   } else {
-    fb.className = 'import-fb err';
-    fb.textContent = 'Nenhuma categoria reconhecida. Verifique o formato (CATEGORIA: valor USD/BRL).';
+    fb.className='import-fb err';
+    fb.textContent='Nenhuma categoria reconhecida. Verifique o formato (CATEGORIA: valor USD/BRL).';
   }
 }
 
-function limparImport() {
-  document.getElementById('import-text').value = '';
-  var fb = document.getElementById('import-fb');
-  fb.className = 'import-fb';
-  fb.textContent = '';
+function limparImport(){
+  document.getElementById('import-text').value='';
+  var fb=document.getElementById('import-fb');
+  fb.className='import-fb';fb.textContent='';
 }
 
-function setCurr(c) {
-  modalCurr = c;
-  document.getElementById('btn-usd').className = c === 'USD' ? 'active' : '';
-  document.getElementById('btn-brl').className = c === 'BRL' ? 'active' : '';
+function setCurr(c){
+  modalCurr=c;
+  document.getElementById('btn-usd').className=c==='USD'?'active':'';
+  document.getElementById('btn-brl').className=c==='BRL'?'active':'';
   atualizarConvModal();
 }
 
-function atualizarConvModal() {
-  var orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
-  var real = parseFloat(document.getElementById('modal-real').value) || 0;
-  var conv = document.getElementById('modal-conv');
-  if (modalCurr === 'BRL' && (orc > 0 || real > 0)) {
-    conv.textContent = 'Taxa: R$ 1 = $ ' + brlToUsd.toFixed(4) +
-      (orc  > 0 ? '  ·  Orçado → '    + fmtUSD(orc  * brlToUsd) : '') +
-      (real > 0 ? '  ·  Realizado → ' + fmtUSD(real * brlToUsd) : '');
-  } else { conv.textContent = ''; }
+function atualizarConvModal(){
+  var orc=parseFloat(document.getElementById('modal-orc').value)||0;
+  var real=parseFloat(document.getElementById('modal-real').value)||0;
+  var conv=document.getElementById('modal-conv');
+  if(modalCurr==='BRL'&&(orc>0||real>0)){
+    conv.textContent='Taxa: R$ 1 = $ '+brlToUsd.toFixed(4)+
+      (orc>0?'  ·  Orçado → '+fmtUSD(orc*brlToUsd):'')+
+      (real>0?'  ·  Realizado → '+fmtUSD(real*brlToUsd):'');
+  } else { conv.textContent=''; }
 }
 
-function abrirModal(mes, id, nome, isBrl) {
-  var v = carregar(mes, id);
-  var sc = v.currency || (isBrl ? 'BRL' : 'USD');
-  modalCtx = {mes: mes, id: id};
-  modalCurr = sc;
-  document.getElementById('modal-title').textContent = nome;
-  document.getElementById('modal-orc').value  = v.orc  || '';
-  document.getElementById('modal-real').value = v.real || '';
-  document.getElementById('btn-usd').className = sc === 'USD' ? 'active' : '';
-  document.getElementById('btn-brl').className = sc === 'BRL' ? 'active' : '';
+function abrirModal(mes,id,nome,isBrl){
+  var v=carregar(mes,id);
+  var sc=v.currency||(isBrl?'BRL':'USD');
+  modalCtx={mes:mes,id:id};
+  modalCurr=sc;
+  document.getElementById('modal-title').textContent=nome;
+  document.getElementById('modal-orc').value =v.orc||'';
+  document.getElementById('modal-real').value=v.real||'';
+  document.getElementById('btn-usd').className=sc==='USD'?'active':'';
+  document.getElementById('btn-brl').className=sc==='BRL'?'active':'';
   atualizarConvModal();
   document.getElementById('modal-bg').classList.add('open');
 }
 
-function fecharModal() {
+function fecharModal(){
   document.getElementById('modal-bg').classList.remove('open');
-  modalCtx = null;
+  modalCtx=null;
 }
 
-function salvarModal() {
-  if (!modalCtx) return;
-  var orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
-  var real = parseFloat(document.getElementById('modal-real').value) || 0;
-  salvar(modalCtx.mes, modalCtx.id, {orc: orc, real: real, currency: modalCurr});
+function salvarModal(){
+  if(!modalCtx)return;
+  var orc=parseFloat(document.getElementById('modal-orc').value)||0;
+  var real=parseFloat(document.getElementById('modal-real').value)||0;
+  salvar(modalCtx.mes,modalCtx.id,{orc:orc,real:real,currency:modalCurr});
   fecharModal();
   renderTudo(mesAtual);
 }
 
-function trocarMes() {
-  mesAtual = document.getElementById('mes-sel').value;
+function trocarMes(){
+  mesAtual=document.getElementById('mes-sel').value;
   renderTudo(mesAtual);
 }
 
-async function atualizarCotacao() {
-  var el = document.getElementById('dolar-val');
-  el.textContent = '...';
-  try {
-    var r = await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
-    var j = await r.json();
-    if (j.rates && j.rates.USD) brlToUsd = j.rates.USD;
-    el.textContent = brlToUsd.toFixed(4);
-    document.getElementById('rate-note').textContent = 'Cotação atualizada · R$ 1 = $ ' + brlToUsd.toFixed(4);
+async function atualizarCotacao(){
+  var el=document.getElementById('dolar-val');
+  el.textContent='...';
+  try{
+    var r=await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
+    var j=await r.json();
+    if(j.rates&&j.rates.USD)brlToUsd=j.rates.USD;
+    el.textContent=brlToUsd.toFixed(4);
+    document.getElementById('rate-note').textContent='Cotação atualizada · R$ 1 = $ '+brlToUsd.toFixed(4);
     renderTudo(mesAtual);
-  } catch(e) {
-    el.textContent = brlToUsd.toFixed(4);
-  }
+  }catch(e){ el.textContent=brlToUsd.toFixed(4); }
 }
 
-document.getElementById('modal-bg').addEventListener('click', function(e) {
-  if (e.target === this) fecharModal();
-});
-document.getElementById('modal-orc').addEventListener('input', atualizarConvModal);
-document.getElementById('modal-real').addEventListener('input', atualizarConvModal);
+document.getElementById('modal-bg').addEventListener('click',function(e){ if(e.target===this)fecharModal(); });
+document.getElementById('modal-orc').addEventListener('input',atualizarConvModal);
+document.getElementById('modal-real').addEventListener('input',atualizarConvModal);
 
 gerarMeses();
 atualizarCotacao();
