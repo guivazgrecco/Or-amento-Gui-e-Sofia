@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0043)file:///C:/Users/sofia/Downloads/index.html -->
+<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_2.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,10 +38,10 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .section-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; }
 .section-full { grid-column: 1 / -1; }
 .section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.col-headers { display: grid; grid-template-columns: 1fr 80px 84px 100px 48px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
+.col-headers { display: grid; grid-template-columns: 1fr 80px 84px 130px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
 .col-h { font-size: 11px; color: #bbb; text-align: right; }
 .col-h:first-child { text-align: left; }
-.item-row { display: grid; grid-template-columns: 1fr 80px 84px 100px 48px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+.item-row { display: grid; grid-template-columns: 1fr 80px 84px 130px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
 .item-row:last-child { border-bottom: none; }
 .item-name { font-size: 13px; color: #1a1a1a; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .item-val { font-size: 13px; text-align: right; }
@@ -150,7 +150,7 @@ GASOLINA: 200.00 BRL
   <div class="sections">
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-coin"></i> Receitas</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">+ rápido</span><span class="col-h"></span></div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
       <div id="receitas-list"><div class="item-row">
       <span class="item-name">Salário Guilherme <span class="tag-brl">R$→$</span></span>
       <span class="item-val orc">—</span>
@@ -160,8 +160,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;sal_gui&#39;,&#39;q_sal_gui&#39;,true)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;sal_gui&#39;,&#39;Salário Guilherme&#39;,true)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -177,8 +175,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;fapesp&#39;,&#39;q_fapesp&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;fapesp&#39;,&#39;Bolsa FAPESP (Sofia)&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -194,8 +190,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;atend&#39;,&#39;q_atend&#39;,true)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;atend&#39;,&#39;Atendimentos (Sofia)&#39;,true)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -206,7 +200,7 @@ GASOLINA: 200.00 BRL
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-home"></i> Despesas fixas</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">+ rápido</span><span class="col-h"></span></div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
       <div id="fixas-list"><div class="item-row">
       <span class="item-name">Aluguel</span>
       <span class="item-val orc">—</span>
@@ -216,8 +210,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;aluguel&#39;,&#39;q_aluguel&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;aluguel&#39;,&#39;Aluguel&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -233,8 +225,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;energia&#39;,&#39;q_energia&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;energia&#39;,&#39;Energia&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -250,8 +240,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;gas&#39;,&#39;q_gas&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;gas&#39;,&#39;Gás&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -267,8 +255,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;internet&#39;,&#39;q_internet&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;internet&#39;,&#39;Internet&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -284,8 +270,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;tip&#39;,&#39;q_tip&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;tip&#39;,&#39;Tip (cachorro)&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -301,8 +285,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;mercado&#39;,&#39;q_mercado&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;mercado&#39;,&#39;Mercado&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -318,8 +300,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;seguro&#39;,&#39;q_seguro&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;seguro&#39;,&#39;Seguro do carro&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -335,8 +315,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;gasolina&#39;,&#39;q_gasolina&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;gasolina&#39;,&#39;Gasolina&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -352,8 +330,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;terp_gui&#39;,&#39;q_terp_gui&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;terp_gui&#39;,&#39;Terapia Guilherme&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -369,8 +345,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;terp_sof&#39;,&#39;q_terp_sof&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;terp_sof&#39;,&#39;Terapia Sofia&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -386,8 +360,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;superv&#39;,&#39;q_superv&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;superv&#39;,&#39;Supervisão Sofia&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -403,8 +375,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;cursos&#39;,&#39;q_cursos&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;cursos&#39;,&#39;Cursos Gui&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -420,8 +390,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;fies&#39;,&#39;q_fies&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;fies&#39;,&#39;Fies&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -437,8 +405,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;inv_cli&#39;,&#39;q_inv_cli&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;inv_cli&#39;,&#39;Investimento Clínica&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -449,7 +415,7 @@ GASOLINA: 200.00 BRL
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-shopping-cart"></i> Despesas variáveis</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">+ rápido</span><span class="col-h"></span></div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
       <div id="variaveis-list"><div class="item-row">
       <span class="item-name">Restaurante/Bar</span>
       <span class="item-val orc">—</span>
@@ -459,8 +425,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;rest_bar&#39;,&#39;q_rest_bar&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;rest_bar&#39;,&#39;Restaurante/Bar&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -476,8 +440,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;delivery&#39;,&#39;q_delivery&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;delivery&#39;,&#39;Delivery&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -493,8 +455,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;med_suple&#39;,&#39;q_med_suple&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;med_suple&#39;,&#39;Medicamentos/Suplementos&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -510,8 +470,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;pessoal_gui&#39;,&#39;q_pessoal_gui&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;pessoal_gui&#39;,&#39;Gastos pessoais Gui&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -527,8 +485,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;pessoal_sof&#39;,&#39;q_pessoal_sof&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;pessoal_sof&#39;,&#39;Gastos pessoais Sofia&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -539,7 +495,7 @@ GASOLINA: 200.00 BRL
     </div>
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-sparkles"></i> Extras</div>
-      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">+ rápido</span><span class="col-h"></span></div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
       <div id="extras-list"><div class="item-row">
       <span class="item-name">Eventualidades</span>
       <span class="item-val orc">—</span>
@@ -549,8 +505,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;eventual&#39;,&#39;q_eventual&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;eventual&#39;,&#39;Eventualidades&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -566,8 +520,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;presentes&#39;,&#39;q_presentes&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;presentes&#39;,&#39;Presentes&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -583,8 +535,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;casa&#39;,&#39;q_casa&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;casa&#39;,&#39;Compras pra casa&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -600,8 +550,6 @@ GASOLINA: 200.00 BRL
         <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;uber&#39;,&#39;q_uber&#39;,false)" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;uber&#39;,&#39;Uber&#39;,false)" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
@@ -615,12 +563,12 @@ GASOLINA: 200.00 BRL
 
 <div class="modal-bg" id="modal-bg">
   <div class="modal">
-    <h3 id="modal-title">Salário Guilherme</h3>
+    <h3 id="modal-title">Editar valor</h3>
     <p class="modal-hint">Edita o valor total diretamente.</p>
     <label>Moeda</label>
     <div class="currency-toggle">
       <button id="btn-usd" class="active" onclick="setCurrency(&#39;USD&#39;)">USD $</button>
-      <button id="btn-brl" onclick="setCurrency(&#39;BRL&#39;)" class="">BRL R$</button>
+      <button id="btn-brl" onclick="setCurrency(&#39;BRL&#39;)">BRL R$</button>
     </div>
     <label>Orçado</label>
     <input type="number" id="modal-orc" placeholder="0" min="0" step="0.01">
@@ -733,8 +681,6 @@ function renderLista(containerId, items, mes) {
         <button class="quick-add" onclick="somarRapido('${mes}','${item.id}','${qid}',${!!item.brl})" title="Somar">
           <i class="ti ti-circle-plus"></i>
         </button>
-      </div>
-      <div class="row-actions">
         <button class="edit-btn" onclick="abrirModal('${mes}','${item.id}','${item.nome.replace(/'/g,"\\'")}',${!!item.brl})" title="Editar total">
           <i class="ti ti-pencil"></i>
         </button>
