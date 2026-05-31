@@ -1,239 +1,301 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_4.html -->
+<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_5.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Financeiro · Guilherme &amp; Sofia</title>
-<link rel="stylesheet" href="./Dashboard Financeiro · Guilherme &amp; Sofia_files/tabler-icons.min.css">
+<title>Dashboard · Gui &amp; Sofia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Dashboard · Gui &amp; Sofia_files/css2" rel="stylesheet">
+<link rel="stylesheet" href="./Dashboard · Gui &amp; Sofia_files/tabler-icons.min.css">
 <style>
+:root {
+  --bg: #f0efe9;
+  --card: #ffffff;
+  --card2: #f7f6f2;
+  --border: #e5e3db;
+  --text: #1a1917;
+  --muted: #9e9b93;
+  --muted2: #c5c2b8;
+  --green: #1a7a5e;
+  --green-bg: #e8f5f0;
+  --red: #b83232;
+  --red-bg: #faeaea;
+  --amber: #a05c00;
+  --amber-bg: #fef3e2;
+  --blue: #1a5fa8;
+  --blue-bg: #e8f0fb;
+  --accent: #2563eb;
+}
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; }
-.container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
-.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
-h1 { font-size: 20px; font-weight: 500; }
-.subtitle { font-size: 13px; color: #888; margin-top: 2px; }
-.header-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-.dolar-badge { font-size: 12px; color: #185FA5; background: #E6F1FB; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; gap: 4px; cursor: pointer; border: none; }
-.dolar-badge:hover { background: #B5D4F4; }
-select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; }
-.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
-.kpi { background: #efefed; border-radius: 10px; padding: 14px 16px; }
-.kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
-.kpi-value { font-size: 22px; font-weight: 500; color: #1a1a1a; }
-.kpi-sub { font-size: 11px; color: #aaa; margin-top: 2px; }
-.kpi.ok .kpi-value { color: #0F6E56; }
-.kpi.danger .kpi-value { color: #A32D2D; }
-.meta-bar-wrap { background: #efefed; border-radius: 10px; padding: 14px 16px; margin-bottom: 1.5rem; }
-.meta-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-.meta-bar-header span { font-size: 13px; color: #888; }
-.meta-bar-header strong { font-size: 14px; font-weight: 500; }
-.bar-track { height: 10px; background: #ddd; border-radius: 999px; overflow: hidden; }
-.bar-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
-.bar-fill.ok { background: #1D9E75; }
-.bar-fill.warn { background: #BA7517; }
-.bar-fill.bad { background: #E24B4A; }
-.rate-note { font-size: 11px; color: #aaa; margin-top: 8px; text-align: right; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* Header */
+.top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 12px; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { width: 36px; height: 36px; background: var(--text); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px; }
+.logo-text h1 { font-size: 17px; font-weight: 600; letter-spacing: -0.3px; }
+.logo-text p { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.top-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.rate-btn { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--blue); background: var(--blue-bg); padding: 6px 12px; border-radius: 8px; border: none; cursor: pointer; display: flex; align-items: center; gap: 5px; font-weight: 500; }
+.rate-btn:hover { opacity: 0.85; }
+.mes-sel { font-size: 13px; font-family: 'DM Sans', sans-serif; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; font-weight: 500; }
+
+/* KPIs */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.5rem; }
+@media(max-width:700px){ .kpis { grid-template-columns: repeat(2,1fr); } }
+.kpi { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+.kpi.accent { background: var(--text); border-color: var(--text); }
+.kpi-label { font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+.kpi.accent .kpi-label { color: rgba(255,255,255,0.5); }
+.kpi-value { font-size: 24px; font-weight: 600; color: var(--text); letter-spacing: -0.5px; font-family: 'DM Mono', monospace; }
+.kpi.accent .kpi-value { color: #fff; }
+.kpi-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+.kpi.accent .kpi-sub { color: rgba(255,255,255,0.45); }
+.kpi-value.ok { color: var(--green); }
+.kpi-value.bad { color: var(--red); }
+
+/* Meta bar */
+.meta-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; margin-bottom: 1.5rem; }
+.meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.meta-label { font-size: 13px; font-weight: 500; color: var(--text); }
+.meta-pct { font-size: 13px; font-weight: 600; font-family: 'DM Mono', monospace; }
+.meta-pct.ok { color: var(--green); }
+.meta-pct.warn { color: var(--amber); }
+.meta-pct.bad { color: var(--red); }
+.bar-bg { height: 8px; background: var(--bg); border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 99px; transition: width 0.6s ease; }
+.bar-fill.ok { background: var(--green); }
+.bar-fill.warn { background: #e09000; }
+.bar-fill.bad { background: var(--red); }
+.meta-bottom { display: flex; justify-content: space-between; margin-top: 6px; }
+.meta-bottom span { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; }
 
 /* Importador */
-.import-banner { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
-.import-title { font-size: 13px; font-weight: 500; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.import-banner textarea { width: 100%; font-size: 12px; font-family: 'Menlo','Consolas',monospace; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fafafa; color: #1a1a1a; resize: vertical; min-height: 90px; outline: none; line-height: 1.7; }
-.import-banner textarea:focus { border-color: #185FA5; }
-.import-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.import-hint { font-size: 11px; color: #aaa; }
+.import-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin-bottom: 1.5rem; }
+.import-head { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+.import-head span { font-size: 14px; font-weight: 600; }
+.import-head .badge { font-size: 10px; background: var(--blue-bg); color: var(--blue); padding: 2px 8px; border-radius: 99px; font-weight: 500; }
+.import-card textarea { width: 100%; font-size: 12px; font-family: 'DM Mono', monospace; border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; background: var(--card2); color: var(--text); resize: vertical; min-height: 88px; outline: none; line-height: 1.8; }
+.import-card textarea:focus { border-color: var(--accent); }
+.import-foot { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.import-hint { font-size: 11px; color: var(--muted); }
 .import-btns { display: flex; gap: 8px; }
-.btn-sec { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #666; cursor: pointer; }
-.btn-sec:hover { background: #f5f5f3; }
-.btn-pri { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: none; background: #1a1a1a; color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
-.btn-pri:hover { background: #333; }
-.import-fb { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; display: none; }
-.import-fb.ok  { display: block; background: #EAF3DE; color: #3B6D11; }
-.import-fb.err { display: block; background: #FCEBEB; color: #A32D2D; }
+.btn-ghost { font-size: 12px; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-ghost:hover { background: var(--card2); }
+.btn-solid { font-size: 12px; padding: 7px 16px; border-radius: 8px; border: none; background: var(--text); color: #fff; cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+.btn-solid:hover { opacity: 0.85; }
+.import-fb { font-size: 12px; margin-top: 10px; padding: 9px 13px; border-radius: 8px; display: none; font-weight: 500; }
+.import-fb.ok  { display: block; background: var(--green-bg); color: var(--green); }
+.import-fb.err { display: block; background: var(--red-bg); color: var(--red); }
 
-/* Sections */
-.sections { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
-@media (max-width: 680px) { .sections { grid-template-columns: 1fr; } }
-.section-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; }
+/* Sections grid */
+.sections { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media(max-width:680px){ .sections { grid-template-columns: 1fr; } }
 .section-full { grid-column: 1 / -1; }
-.section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.sec { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; }
+.sec-head { display: flex; align-items: center; gap: 7px; margin-bottom: 14px; }
+.sec-head .sec-icon { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+.ic-green { background: var(--green-bg); color: var(--green); }
+.ic-blue  { background: var(--blue-bg);  color: var(--blue); }
+.ic-amber { background: var(--amber-bg); color: var(--amber); }
+.ic-red   { background: var(--red-bg);   color: var(--red); }
+.sec-head h2 { font-size: 13px; font-weight: 600; letter-spacing: -0.1px; }
 
-/* Tabela de itens */
-.tbl { width: 100%; border-collapse: collapse; }
-.tbl thead tr th { font-size: 11px; color: #bbb; font-weight: 400; text-align: right; padding: 0 8px 6px; border-bottom: 1px solid #eee; }
-.tbl thead tr th:first-child { text-align: left; padding-left: 0; }
-.tbl thead tr th:last-child { padding-right: 0; }
-.tbl tbody tr { position: relative; }
-.tbl tbody tr:hover { background: #fafaf9; }
-.tbl tbody tr td { font-size: 13px; padding: 7px 8px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
-.tbl tbody tr:last-child td { border-bottom: none; }
-.tbl tbody tr td:first-child { padding-left: 0; }
-.tbl tbody tr td:last-child { padding-right: 0; }
-.td-name { display: flex; align-items: center; gap: 6px; }
-.td-val { text-align: right; white-space: nowrap; }
-.td-val.orc    { color: #aaa; }
-.td-val.over   { color: #A32D2D; font-weight: 500; }
-.td-val.realok { color: #0F6E56; font-weight: 500; }
-.td-val.zero   { color: #ccc; }
+/* Table */
+table { width: 100%; border-collapse: collapse; }
+thead th { font-size: 11px; font-weight: 500; color: var(--muted2); text-align: right; padding: 0 6px 8px; border-bottom: 1px solid var(--border); }
+thead th:first-child { text-align: left; padding-left: 0; }
+thead th:last-child { padding-right: 0; }
+tbody tr { transition: background 0.1s; }
+tbody tr:hover { background: var(--card2); }
+tbody td { font-size: 13px; padding: 8px 6px; border-bottom: 1px solid #f2f1ed; vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody td:first-child { padding-left: 0; }
+tbody td:last-child { padding-right: 0; }
+.td-name { display: flex; align-items: center; gap: 6px; font-weight: 400; }
+.tag-brl { font-size: 9px; padding: 2px 5px; border-radius: 5px; background: var(--amber-bg); color: var(--amber); font-weight: 600; letter-spacing: 0.2px; }
+.td-num { text-align: right; font-family: 'DM Mono', monospace; font-size: 12px; white-space: nowrap; }
+.td-num.orc  { color: var(--muted); }
+.td-num.over { color: var(--red); font-weight: 600; }
+.td-num.ok   { color: var(--green); font-weight: 500; }
+.td-num.zero { color: var(--muted2); }
 .td-quick { text-align: right; }
-.td-actions { text-align: right; white-space: nowrap; }
-.tag-brl { font-size: 10px; padding: 2px 5px; border-radius: 999px; background: #FAEEDA; color: #854F0B; white-space: nowrap; }
-
-/* Input rápido */
-.quick-row { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
-.quick-input { width: 60px; font-size: 12px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; color: #1a1a1a; outline: none; text-align: right; }
-.quick-input:focus { border-color: #185FA5; background: #fff; }
-.btn-add { background: none; border: none; cursor: pointer; color: #1D9E75; font-size: 18px; padding: 2px 3px; border-radius: 4px; line-height: 1; display: flex; align-items: center; }
-.btn-add:hover { background: #EAF3DE; }
-
-/* Botões de ação */
-.btn-edit { background: none; border: none; cursor: pointer; color: #bbb; font-size: 14px; padding: 3px 4px; border-radius: 4px; display: inline-flex; align-items: center; }
-.btn-edit:hover { color: #555; background: #f0f0f0; }
-.btn-del  { background: none; border: none; cursor: pointer; color: #bbb; font-size: 14px; padding: 3px 4px; border-radius: 4px; display: inline-flex; align-items: center; }
-.btn-del:hover  { color: #A32D2D; background: #FCEBEB; }
+.q-row { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
+.q-input { width: 62px; font-size: 12px; font-family: 'DM Mono', monospace; padding: 5px 7px; border: 1px solid var(--border); border-radius: 7px; background: var(--card2); color: var(--text); outline: none; text-align: right; }
+.q-input:focus { border-color: var(--accent); background: #fff; }
+.q-btn { background: none; border: none; cursor: pointer; color: var(--green); font-size: 20px; padding: 1px 2px; border-radius: 5px; display: flex; align-items: center; line-height: 1; }
+.q-btn:hover { background: var(--green-bg); }
+.td-act { text-align: right; white-space: nowrap; }
+.a-btn { background: none; border: none; cursor: pointer; font-size: 15px; padding: 4px 5px; border-radius: 6px; display: inline-flex; align-items: center; color: var(--muted2); }
+.a-btn:hover { background: var(--card2); color: var(--text); }
+.a-btn.del:hover { background: var(--red-bg); color: var(--red); }
 
 /* Modal */
-.modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
-.modal-bg.open { display: flex; }
-.modal { background: #fff; border-radius: 14px; border: 1px solid #e8e8e6; padding: 22px; width: 340px; max-width: 92vw; }
-.modal h3 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
-.modal-hint { font-size: 12px; color: #888; margin-bottom: 16px; }
-.modal label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
-.modal input[type=number] { width: 100%; padding: 8px 10px; font-size: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; outline: none; background: #fff; color: #1a1a1a; }
-.modal input[type=number]:focus { border-color: #185FA5; }
-.curr-toggle { display: inline-flex; gap: 3px; background: #f0f0f0; border-radius: 8px; padding: 3px; margin-bottom: 14px; }
-.curr-toggle button { background: none; border: none; cursor: pointer; font-size: 12px; padding: 4px 10px; border-radius: 6px; color: #888; }
-.curr-toggle button.active { background: #fff; color: #185FA5; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.modal-conv { font-size: 11px; color: #aaa; margin-bottom: 10px; min-height: 16px; }
-.modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
-.modal-btns button { font-size: 13px; padding: 7px 16px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; }
-.modal-btns button.primary { background: #1a1a1a; color: #fff; border-color: transparent; }
+.overlay { display: none; position: fixed; inset: 0; background: rgba(10,10,10,0.5); z-index: 200; align-items: center; justify-content: center; backdrop-filter: blur(2px); }
+.overlay.open { display: flex; }
+.modal { background: #fff; border-radius: 16px; padding: 24px; width: 360px; max-width: 94vw; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
+.modal h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+.modal-sub { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+.modal label { font-size: 12px; font-weight: 500; color: var(--muted); display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.3px; }
+.modal input[type=number] { width: 100%; padding: 10px 12px; font-size: 14px; font-family: 'DM Mono', monospace; border: 1.5px solid var(--border); border-radius: 9px; margin-bottom: 14px; outline: none; background: var(--card2); color: var(--text); }
+.modal input[type=number]:focus { border-color: var(--accent); background: #fff; }
+.curr-row { display: flex; gap: 6px; margin-bottom: 16px; }
+.curr-btn { flex: 1; padding: 7px; font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 500; border-radius: 8px; border: 1.5px solid var(--border); background: var(--card2); color: var(--muted); cursor: pointer; }
+.curr-btn.active { border-color: var(--accent); background: var(--blue-bg); color: var(--blue); }
+.conv-note { font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; min-height: 16px; margin-bottom: 12px; }
+.modal-btns { display: flex; gap: 8px; justify-content: flex-end; }
+.modal-btns button { font-size: 13px; padding: 8px 18px; border-radius: 9px; border: 1px solid var(--border); background: var(--card2); color: var(--text); cursor: pointer; font-family: 'DM Sans', sans-serif; font-weight: 500; }
+.modal-btns button.save { background: var(--text); color: #fff; border-color: var(--text); }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="wrap">
 
-  <div class="header">
-    <div>
-      <h1><i class="ti ti-chart-pie" style="font-size:18px;vertical-align:-2px;margin-right:6px"></i>Dashboard financeiro</h1>
-      <p class="subtitle">Guilherme &amp; Sofia · tudo em USD</p>
+  <div class="top">
+    <div class="logo">
+      <div class="logo-icon"><i class="ti ti-chart-donut"></i></div>
+      <div class="logo-text">
+        <h1>Dashboard financeiro</h1>
+        <p>Guilherme &amp; Sofia · tudo em USD</p>
+      </div>
     </div>
-    <div class="header-right">
-      <button class="dolar-badge" onclick="atualizarCotacao()">
-        <i class="ti ti-refresh"></i> R$ 1 = $ <span id="dolar-val">0.1980</span>
+    <div class="top-right">
+      <button class="rate-btn" onclick="atualizarCotacao()">
+        <i class="ti ti-refresh"></i> R$1 = $<span id="dolar-val">0.1980</span>
       </button>
-      <select id="mes-sel" onchange="trocarMes()"><option value="2026-06">Jun 2026</option><option value="2026-07">Jul 2026</option><option value="2026-08">Ago 2026</option><option value="2026-09">Set 2026</option><option value="2026-10">Out 2026</option><option value="2026-11">Nov 2026</option><option value="2026-12">Dez 2026</option><option value="2027-01">Jan 2027</option><option value="2027-02">Fev 2027</option><option value="2027-03">Mar 2027</option><option value="2027-04">Abr 2027</option><option value="2027-05">Mai 2027</option><option value="2027-06">Jun 2027</option><option value="2027-07">Jul 2027</option><option value="2027-08">Ago 2027</option><option value="2027-09">Set 2027</option><option value="2027-10">Out 2027</option><option value="2027-11">Nov 2027</option><option value="2027-12">Dez 2027</option></select>
+      <select class="mes-sel" id="mes-sel" onchange="trocarMes()"><option value="2026-06">Jun 2026</option><option value="2026-07">Jul 2026</option><option value="2026-08">Ago 2026</option><option value="2026-09">Set 2026</option><option value="2026-10">Out 2026</option><option value="2026-11">Nov 2026</option><option value="2026-12">Dez 2026</option><option value="2027-01">Jan 2027</option><option value="2027-02">Fev 2027</option><option value="2027-03">Mar 2027</option><option value="2027-04">Abr 2027</option><option value="2027-05">Mai 2027</option><option value="2027-06">Jun 2027</option><option value="2027-07">Jul 2027</option><option value="2027-08">Ago 2027</option><option value="2027-09">Set 2027</option><option value="2027-10">Out 2027</option><option value="2027-11">Nov 2027</option><option value="2027-12">Dez 2027</option></select>
     </div>
   </div>
 
   <div class="kpis">
-    <div class="kpi"><div class="kpi-label"><i class="ti ti-arrow-up"></i> Receita total</div><div class="kpi-value" id="kpi-receita">$ 0</div><div class="kpi-sub">realizado em USD</div></div>
-    <div class="kpi"><div class="kpi-label"><i class="ti ti-arrow-down"></i> Despesas totais</div><div class="kpi-value" id="kpi-despesas">$ 0</div><div class="kpi-sub">realizado em USD</div></div>
-    <div class="kpi ok" id="kpi-saldo-card"><div class="kpi-label"><i class="ti ti-scale"></i> Saldo do mês</div><div class="kpi-value" id="kpi-saldo">$ 0</div><div class="kpi-sub">receita − despesas</div></div>
-    <div class="kpi danger" id="kpi-meta-card"><div class="kpi-label"><i class="ti ti-target"></i> Meta de poupança</div><div class="kpi-value" id="kpi-meta-val">$ 1,980</div><div class="kpi-sub" id="kpi-meta-sub">faltam $ 1,980</div></div>
+    <div class="kpi">
+      <div class="kpi-label"><i class="ti ti-arrow-up" style="font-size:13px"></i> Receita</div>
+      <div class="kpi-value" id="kpi-rec">$0</div>
+      <div class="kpi-sub">realizado</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><i class="ti ti-arrow-down" style="font-size:13px"></i> Despesas</div>
+      <div class="kpi-value" id="kpi-desp">$0</div>
+      <div class="kpi-sub">realizado</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><i class="ti ti-scale" style="font-size:13px"></i> Saldo</div>
+      <div class="kpi-value ok" id="kpi-saldo">$0</div>
+      <div class="kpi-sub">receita − despesas</div>
+    </div>
+    <div class="kpi accent">
+      <div class="kpi-label"><i class="ti ti-target" style="font-size:13px"></i> Meta</div>
+      <div class="kpi-value" id="kpi-meta">$1,980</div>
+      <div class="kpi-sub" id="kpi-meta-sub">faltam $1,980</div>
+    </div>
   </div>
 
-  <div class="meta-bar-wrap">
-    <div class="meta-bar-header"><span id="meta-bar-label">Progresso para meta de $ 1,980 (≈ R$ 10.000)</span><strong id="meta-pct">0%</strong></div>
-    <div class="bar-track"><div class="bar-fill bad" id="meta-bar" style="width:0%"></div></div>
-    <div class="rate-note" id="rate-note">Cotação atualizada · R$ 1 = $ 0.1980</div>
+  <div class="meta-wrap">
+    <div class="meta-top">
+      <span class="meta-label" id="meta-lbl">Progresso para $1,980 (≈ R$ 10.000)</span>
+      <span class="meta-pct bad" id="meta-pct">0%</span>
+    </div>
+    <div class="bar-bg"><div class="bar-fill bad" id="meta-bar" style="width:0%"></div></div>
+    <div class="meta-bottom">
+      <span id="rate-note">Cotação: R$1 = $0.1980</span>
+      <span id="meta-diff">faltam $1,980</span>
+    </div>
   </div>
 
-  <div class="import-banner">
-    <div class="import-title"><i class="ti ti-file-import"></i> Importar dados via Claude</div>
-    <textarea id="import-text" placeholder="Cole aqui o texto gerado pelo Claude:
-MERCADO: 320.50 BRL
+  <div class="import-card">
+    <div class="import-head">
+      <i class="ti ti-file-import" style="font-size:18px;color:var(--blue)"></i>
+      <span>Importar via Claude</span>
+      <span class="badge">cole o texto gerado</span>
+    </div>
+    <textarea id="import-txt" placeholder="MERCADO: 320.50 BRL
 DELIVERY: 45.00 USD
-RESTAURANTE_BAR: 89.00 USD"></textarea>
-    <div class="import-footer">
-      <span class="import-hint">Valores somados ao realizado do mês selecionado.</span>
+RESTAURANTE_BAR: 89.00 USD
+GASOLINA: 200.00 BRL"></textarea>
+    <div class="import-foot">
+      <span class="import-hint">Valores somados ao realizado do mês selecionado</span>
       <div class="import-btns">
-        <button class="btn-sec" onclick="limparImport()">Limpar</button>
-        <button class="btn-pri" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar</button>
+        <button class="btn-ghost" onclick="limparImport()">Limpar</button>
+        <button class="btn-solid" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar</button>
       </div>
     </div>
     <div class="import-fb" id="import-fb"></div>
   </div>
 
   <div class="sections">
-    <div class="section-card section-full">
-      <div class="section-title"><i class="ti ti-coin"></i> Receitas</div>
-      <table class="tbl"><thead><tr>
-        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
-      </tr></thead><tbody id="receitas-list"><tr><td class="td-name">Salário Guilherme<span class="tag-brl">R$→$</span></td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Bolsa FAPESP (Sofia)</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Atendimentos (Sofia)<span class="tag-brl">R$→$</span></td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
+    <div class="sec section-full">
+      <div class="sec-head"><div class="sec-icon ic-green"><i class="ti ti-coin"></i></div><h2>Receitas</h2></div>
+      <table><thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-receitas"><tr><td><span class="td-name">Salário Guilherme<span class="tag-brl">R$→$</span></span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Bolsa FAPESP (Sofia)</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Atendimentos (Sofia)<span class="tag-brl">R$→$</span></span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
-    <div class="section-card">
-      <div class="section-title"><i class="ti ti-home"></i> Despesas fixas</div>
-      <table class="tbl"><thead><tr>
-        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
-      </tr></thead><tbody id="fixas-list"><tr><td class="td-name">Aluguel</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Energia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gás</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Internet</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Tip (cachorro)</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Mercado</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Seguro do carro</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gasolina</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Terapia Guilherme</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Terapia Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Supervisão Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Cursos Gui</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Fies</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Investimento Clínica</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
+    <div class="sec">
+      <div class="sec-head"><div class="sec-icon ic-blue"><i class="ti ti-home"></i></div><h2>Despesas fixas</h2></div>
+      <table><thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-fixas"><tr><td><span class="td-name">Aluguel</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Energia</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Gás</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Internet</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Tip (cachorro)</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Mercado</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Seguro do carro</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Gasolina</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Terapia Guilherme</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Terapia Sofia</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Supervisão Sofia</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Cursos Gui</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Fies</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Investimento Clínica</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
-    <div class="section-card">
-      <div class="section-title"><i class="ti ti-shopping-cart"></i> Despesas variáveis</div>
-      <table class="tbl"><thead><tr>
-        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
-      </tr></thead><tbody id="variaveis-list"><tr><td class="td-name">Restaurante/Bar</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Delivery</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Medicamentos/Suplementos</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gastos pessoais Gui</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Gastos pessoais Sofia</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
+    <div class="sec">
+      <div class="sec-head"><div class="sec-icon ic-amber"><i class="ti ti-shopping-cart"></i></div><h2>Despesas variáveis</h2></div>
+      <table><thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-variaveis"><tr><td><span class="td-name">Restaurante/Bar</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Delivery</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Medicamentos/Suplementos</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Gastos pessoais Gui</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Gastos pessoais Sofia</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
-    <div class="section-card section-full">
-      <div class="section-title"><i class="ti ti-sparkles"></i> Extras</div>
-      <table class="tbl"><thead><tr>
-        <th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th>
-      </tr></thead><tbody id="extras-list"><tr><td class="td-name">Eventualidades</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Presentes</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Compras pra casa</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td class="td-name">Uber</td><td class="td-val orc">—</td><td class="td-val zero">—</td><td class="td-quick"><div class="quick-row"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar ao realizado"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-actions"><button class="btn-edit" title="Editar orçado e realizado"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
+    <div class="sec section-full">
+      <div class="sec-head"><div class="sec-icon ic-red"><i class="ti ti-sparkles"></i></div><h2>Extras</h2></div>
+      <table><thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-extras"><tr><td><span class="td-name">Eventualidades</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Presentes</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Compras pra casa</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr><tr><td><span class="td-name">Uber</span></td><td class="td-num orc">—</td><td class="td-num zero">—</td><td class="td-quick"><div class="q-row"><input class="q-input" type="number" placeholder="0" min="0" step="0.01"><button class="q-btn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td class="td-act"><button class="a-btn" title="Editar"><i class="ti ti-pencil"></i></button><button class="a-btn del" title="Zerar realizado"><i class="ti ti-trash"></i></button></td></tr></tbody></table>
     </div>
   </div>
-
 </div>
 
-<div class="modal-bg" id="modal-bg">
+<div class="overlay" id="overlay">
   <div class="modal">
-    <h3 id="modal-title">Aluguel</h3>
-    <p class="modal-hint">Edita o valor total diretamente.</p>
-    <label>Moeda</label>
-    <div class="curr-toggle">
-      <button id="btn-usd" class="active" onclick="setCurr(&#39;USD&#39;)">USD $</button>
-      <button id="btn-brl" onclick="setCurr(&#39;BRL&#39;)" class="">BRL R$</button>
+    <h3 id="m-title">Editar</h3>
+    <p class="modal-sub">Edita orçado e realizado diretamente.</p>
+    <div class="curr-row">
+      <button class="curr-btn active" id="b-usd" onclick="setCurr(&#39;USD&#39;)">$ USD</button>
+      <button class="curr-btn" id="b-brl" onclick="setCurr(&#39;BRL&#39;)">R$ BRL</button>
     </div>
     <label>Orçado</label>
-    <input type="number" id="modal-orc" placeholder="0" min="0" step="0.01">
+    <input type="number" id="m-orc" placeholder="0" min="0" step="0.01">
     <label>Realizado</label>
-    <input type="number" id="modal-real" placeholder="0" min="0" step="0.01">
-    <div class="modal-conv" id="modal-conv"></div>
+    <input type="number" id="m-real" placeholder="0" min="0" step="0.01">
+    <div class="conv-note" id="m-conv"></div>
     <div class="modal-btns">
       <button onclick="fecharModal()">Cancelar</button>
-      <button class="primary" onclick="salvarModal()">Salvar</button>
+      <button class="save" onclick="salvarModal()">Salvar</button>
     </div>
   </div>
 </div>
 
 <script>
 var CATS = {
-  receitas: [
-    {id:'sal_gui', nome:'Salário Guilherme', brl:true},
-    {id:'fapesp',  nome:'Bolsa FAPESP (Sofia)', brl:false},
-    {id:'atend',   nome:'Atendimentos (Sofia)', brl:true}
+  receitas:[
+    {id:'sal_gui',nome:'Salário Guilherme',brl:true},
+    {id:'fapesp', nome:'Bolsa FAPESP (Sofia)',brl:false},
+    {id:'atend',  nome:'Atendimentos (Sofia)',brl:true}
   ],
-  fixas: [
-    {id:'aluguel',   nome:'Aluguel'},      {id:'energia',  nome:'Energia'},
-    {id:'gas',       nome:'Gás'},           {id:'internet', nome:'Internet'},
-    {id:'tip',       nome:'Tip (cachorro)'},{id:'mercado',  nome:'Mercado'},
-    {id:'seguro',    nome:'Seguro do carro'},{id:'gasolina', nome:'Gasolina'},
-    {id:'terp_gui',  nome:'Terapia Guilherme'},{id:'terp_sof',nome:'Terapia Sofia'},
-    {id:'superv',    nome:'Supervisão Sofia'},{id:'cursos',  nome:'Cursos Gui'},
-    {id:'fies',      nome:'Fies'},          {id:'inv_cli',  nome:'Investimento Clínica'}
+  fixas:[
+    {id:'aluguel', nome:'Aluguel'},      {id:'energia',  nome:'Energia'},
+    {id:'gas',     nome:'Gás'},           {id:'internet', nome:'Internet'},
+    {id:'tip',     nome:'Tip (cachorro)'},{id:'mercado',  nome:'Mercado'},
+    {id:'seguro',  nome:'Seguro do carro'},{id:'gasolina',nome:'Gasolina'},
+    {id:'terp_gui',nome:'Terapia Guilherme'},{id:'terp_sof',nome:'Terapia Sofia'},
+    {id:'superv',  nome:'Supervisão Sofia'},{id:'cursos',  nome:'Cursos Gui'},
+    {id:'fies',    nome:'Fies'},          {id:'inv_cli',  nome:'Investimento Clínica'}
   ],
-  variaveis: [
+  variaveis:[
     {id:'rest_bar',   nome:'Restaurante/Bar'},
     {id:'delivery',   nome:'Delivery'},
     {id:'med_suple',  nome:'Medicamentos/Suplementos'},
     {id:'pessoal_gui',nome:'Gastos pessoais Gui'},
     {id:'pessoal_sof',nome:'Gastos pessoais Sofia'}
   ],
-  extras: [
+  extras:[
     {id:'eventual', nome:'Eventualidades'},{id:'presentes',nome:'Presentes'},
     {id:'casa',     nome:'Compras pra casa'},{id:'uber',   nome:'Uber'}
   ]
 };
-
-var ID_MAP = {
+var ID_MAP={
   SAL_GUI:'sal_gui',SALARIO_GUILHERME:'sal_gui',SALARIO:'sal_gui',
   FAPESP:'fapesp',BOLSA_FAPESP:'fapesp',
   ATEND:'atend',ATENDIMENTOS:'atend',ATENDIMENTOS_SOFIA:'atend',
@@ -251,295 +313,173 @@ var ID_MAP = {
   EVENTUAL:'eventual',EVENTUALIDADES:'eventual',PRESENTES:'presentes',
   CASA:'casa',COMPRAS_CASA:'casa',UBER:'uber'
 };
+var MESES=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+var mes='2026-06',usd=0.18,mCtx=null,mCurr='USD';
 
-var MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-var mesAtual = '2026-06';
-var brlToUsd = 0.18;
-var modalCtx = null;
-var modalCurr = 'USD';
+function gerarMeses(){
+  var s=document.getElementById('mes-sel');
+  for(var y=2026;y<=2027;y++) for(var m=(y===2026?6:1);m<=12;m++){
+    var v=y+'-'+(m<10?'0':'')+m,o=document.createElement('option');
+    o.value=v;o.textContent=MESES[m-1]+' '+y;if(v===mes)o.selected=true;s.appendChild(o);
+  }
+}
+function ck(m,id){return 'fin26_'+m+'_'+id;}
+function load(m,id){try{var s=localStorage.getItem(ck(m,id));return s?JSON.parse(s):{orc:0,real:0,cur:'USD'};}catch(e){return {orc:0,real:0,cur:'USD'};}}
+function save(m,id,v){try{localStorage.setItem(ck(m,id),JSON.stringify(v));}catch(e){}}
+function toU(v,c){return c==='BRL'?v*usd:v;}
+function fmt(n){return '$'+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});}
 
-function gerarMeses() {
-  var sel = document.getElementById('mes-sel');
-  for (var y = 2026; y <= 2027; y++) {
-    for (var m = (y===2026?6:1); m <= 12; m++) {
-      var val = y+'-'+(m<10?'0':'')+m;
-      var opt = document.createElement('option');
-      opt.value = val;
-      opt.textContent = MESES[m-1]+' '+y;
-      if (val===mesAtual) opt.selected=true;
-      sel.appendChild(opt);
-    }
+function renderTable(tbodyId,items,m){
+  var tb=document.getElementById(tbodyId);tb.innerHTML='';
+  for(var i=0;i<items.length;i++){
+    var it=items[i],v=load(m,it.id);
+    var cur=v.cur||(it.brl?'BRL':'USD');
+    var oU=toU(v.orc,cur),rU=toU(v.real,cur);
+    var over=rU>oU&&oU>0;
+    var rc=v.real>0?(over?'over':'ok'):'zero';
+    var tr=document.createElement('tr');
+
+    var td1=document.createElement('td');
+    var nameWrap=document.createElement('span');nameWrap.className='td-name';
+    nameWrap.textContent=it.nome;
+    if(it.brl||cur==='BRL'){var tg=document.createElement('span');tg.className='tag-brl';tg.textContent='R$→$';nameWrap.appendChild(tg);}
+    td1.appendChild(nameWrap);
+
+    var td2=document.createElement('td');td2.className='td-num orc';td2.textContent=oU>0?fmt(oU):'—';
+    var td3=document.createElement('td');td3.className='td-num '+rc;td3.textContent=rU>0?fmt(rU):'—';
+
+    var td4=document.createElement('td');td4.className='td-quick';
+    var qr=document.createElement('div');qr.className='q-row';
+    var qi=document.createElement('input');qi.className='q-input';qi.type='number';qi.placeholder='0';qi.min='0';qi.step='0.01';
+    var qb=document.createElement('button');qb.className='q-btn';qb.title='Somar';qb.innerHTML='<i class="ti ti-circle-plus"></i>';
+    (function(mid,iid,inp,ibrl){
+      inp.addEventListener('keydown',function(e){if(e.key==='Enter')somar(mid,iid,inp,ibrl);});
+      qb.addEventListener('click',function(){somar(mid,iid,inp,ibrl);});
+    })(m,it.id,qi,!!it.brl);
+    qr.appendChild(qi);qr.appendChild(qb);td4.appendChild(qr);
+
+    var td5=document.createElement('td');td5.className='td-act';
+    var eb=document.createElement('button');eb.className='a-btn';eb.title='Editar';eb.innerHTML='<i class="ti ti-pencil"></i>';
+    var db=document.createElement('button');db.className='a-btn del';db.title='Zerar realizado';db.innerHTML='<i class="ti ti-trash"></i>';
+    (function(mid,iid,iname,ibrl){
+      eb.addEventListener('click',function(){abrirModal(mid,iid,iname,ibrl);});
+      db.addEventListener('click',function(){zerarItem(mid,iid);});
+    })(m,it.id,it.nome,!!it.brl);
+    td5.appendChild(eb);td5.appendChild(db);
+
+    tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tr.appendChild(td4);tr.appendChild(td5);
+    tb.appendChild(tr);
   }
 }
 
-function chave(mes,id){ return 'fin26usd_'+mes+'_'+id; }
-
-function carregar(mes,id){
-  try{ var s=localStorage.getItem(chave(mes,id)); return s?JSON.parse(s):{orc:0,real:0,currency:'USD'}; }
-  catch(e){ return {orc:0,real:0,currency:'USD'}; }
+function somar(m,id,inp,ibrl){
+  var v2=parseFloat(inp.value);if(!v2||v2<=0){inp.focus();return;}
+  var v=load(m,id),cur=v.cur||(ibrl?'BRL':'USD');
+  save(m,id,{orc:v.orc,real:(v.real||0)+v2,cur:cur});
+  inp.value='';renderAll(mes);
 }
 
-function salvar(mes,id,val){
-  try{ localStorage.setItem(chave(mes,id),JSON.stringify(val)); }catch(e){}
-}
-
-function toUSD(val,currency){ return currency==='BRL'?val*brlToUsd:val; }
-
-function fmtUSD(n){
-  return '$ '+Math.abs(n).toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0});
-}
-
-function renderLista(tbodyId, items, mes) {
-  var tbody = document.getElementById(tbodyId);
-  tbody.innerHTML = '';
-  for (var i=0; i<items.length; i++) {
-    var item = items[i];
-    var v = carregar(mes, item.id);
-    var currency = v.currency||(item.brl?'BRL':'USD');
-    var orcUSD  = toUSD(v.orc,  currency);
-    var realUSD = toUSD(v.real, currency);
-    var over = realUSD>orcUSD && orcUSD>0;
-    var rc = v.real>0?(over?'over':'realok'):'zero';
-
-    var tr = document.createElement('tr');
-
-    // Nome
-    var tdName = document.createElement('td');
-    tdName.className = 'td-name';
-    tdName.textContent = item.nome;
-    if (item.brl||currency==='BRL') {
-      var tag = document.createElement('span');
-      tag.className = 'tag-brl';
-      tag.textContent = 'R$→$';
-      tdName.appendChild(tag);
-    }
-
-    // Orçado
-    var tdOrc = document.createElement('td');
-    tdOrc.className = 'td-val orc';
-    tdOrc.textContent = orcUSD>0?fmtUSD(orcUSD):'—';
-
-    // Realizado
-    var tdReal = document.createElement('td');
-    tdReal.className = 'td-val '+rc;
-    tdReal.textContent = realUSD>0?fmtUSD(realUSD):'—';
-
-    // + rápido
-    var tdQuick = document.createElement('td');
-    tdQuick.className = 'td-quick';
-    var qWrap = document.createElement('div');
-    qWrap.className = 'quick-row';
-    var qInput = document.createElement('input');
-    qInput.className = 'quick-input';
-    qInput.type = 'number';
-    qInput.placeholder = '0';
-    qInput.min = '0';
-    qInput.step = '0.01';
-    var addBtn = document.createElement('button');
-    addBtn.className = 'btn-add';
-    addBtn.title = 'Somar ao realizado';
-    addBtn.innerHTML = '<i class="ti ti-circle-plus"></i>';
-    (function(mid,miid,inp,ibrl){
-      inp.addEventListener('keydown',function(e){ if(e.key==='Enter') somar(mid,miid,inp,ibrl); });
-      addBtn.addEventListener('click',function(){ somar(mid,miid,inp,ibrl); });
-    })(mes,item.id,qInput,!!item.brl);
-    qWrap.appendChild(qInput);
-    qWrap.appendChild(addBtn);
-    tdQuick.appendChild(qWrap);
-
-    // Ações (lápis + lixeira)
-    var tdAct = document.createElement('td');
-    tdAct.className = 'td-actions';
-    var editBtn = document.createElement('button');
-    editBtn.className = 'btn-edit';
-    editBtn.title = 'Editar orçado e realizado';
-    editBtn.innerHTML = '<i class="ti ti-pencil"></i>';
-    var delBtn = document.createElement('button');
-    delBtn.className = 'btn-del';
-    delBtn.title = 'Zerar realizado';
-    delBtn.innerHTML = '<i class="ti ti-trash"></i>';
-    (function(mid,miid,mname,ibrl){
-      editBtn.addEventListener('click',function(){ abrirModal(mid,miid,mname,ibrl); });
-      delBtn.addEventListener('click',function(){ zerarItem(mid,miid); });
-    })(mes,item.id,item.nome,!!item.brl);
-    tdAct.appendChild(editBtn);
-    tdAct.appendChild(delBtn);
-
-    tr.appendChild(tdName);
-    tr.appendChild(tdOrc);
-    tr.appendChild(tdReal);
-    tr.appendChild(tdQuick);
-    tr.appendChild(tdAct);
-    tbody.appendChild(tr);
-  }
-}
-
-function somar(mes,id,input,isBrl){
-  var valor=parseFloat(input.value);
-  if(!valor||valor<=0){input.focus();return;}
-  var v=carregar(mes,id);
-  var currency=v.currency||(isBrl?'BRL':'USD');
-  salvar(mes,id,{orc:v.orc,real:(v.real||0)+valor,currency:currency});
-  input.value='';
-  renderTudo(mesAtual);
-}
-
-function zerarItem(mes,id){
+function zerarItem(m,id){
   if(!confirm('Zerar o realizado deste item?'))return;
-  var v=carregar(mes,id);
-  salvar(mes,id,{orc:v.orc,real:0,currency:v.currency||'USD'});
-  renderTudo(mesAtual);
+  var v=load(m,id);save(m,id,{orc:v.orc,real:0,cur:v.cur||'USD'});renderAll(mes);
 }
 
-function renderTudo(mes){
-  renderLista('receitas-list', CATS.receitas,  mes);
-  renderLista('fixas-list',    CATS.fixas,     mes);
-  renderLista('variaveis-list',CATS.variaveis, mes);
-  renderLista('extras-list',   CATS.extras,    mes);
-  atualizarKPIs(mes);
+function renderAll(m){
+  renderTable('t-receitas', CATS.receitas,  m);
+  renderTable('t-fixas',    CATS.fixas,     m);
+  renderTable('t-variaveis',CATS.variaveis, m);
+  renderTable('t-extras',   CATS.extras,    m);
+  kpis(m);
 }
 
-function somaGrupo(grupo,mes){
-  var orc=0,real=0;
-  for(var i=0;i<grupo.length;i++){
-    var v=carregar(mes,grupo[i].id);
-    var c=v.currency||(grupo[i].brl?'BRL':'USD');
-    orc+=toUSD(v.orc,c); real+=toUSD(v.real,c);
-  }
-  return {orc:orc,real:real};
+function soma(grupo,m){
+  var o=0,r=0;
+  for(var i=0;i<grupo.length;i++){var v=load(m,grupo[i].id),c=v.cur||(grupo[i].brl?'BRL':'USD');o+=toU(v.orc,c);r+=toU(v.real,c);}
+  return{orc:o,real:r};
 }
 
-function atualizarKPIs(mes){
-  var rec =somaGrupo(CATS.receitas, mes);
-  var fix =somaGrupo(CATS.fixas,    mes);
-  var vari=somaGrupo(CATS.variaveis,mes);
-  var ext =somaGrupo(CATS.extras,   mes);
-  var desp=fix.real+vari.real+ext.real;
-  var saldo=rec.real-desp;
-  var metaUSD=10000*brlToUsd;
-  var pct=Math.min(100,Math.round((saldo/metaUSD)*100));
-  document.getElementById('kpi-receita').textContent =fmtUSD(rec.real);
-  document.getElementById('kpi-despesas').textContent=fmtUSD(desp);
-  document.getElementById('kpi-saldo').textContent   =(saldo<0?'−':'')+fmtUSD(saldo);
-  document.getElementById('kpi-saldo-card').className='kpi '+(saldo>=0?'ok':'danger');
-  document.getElementById('kpi-meta-val').textContent=fmtUSD(metaUSD);
-  var diff=saldo-metaUSD;
-  document.getElementById('kpi-meta-sub').textContent=diff>=0?'✓ sobram '+fmtUSD(diff):'faltam '+fmtUSD(Math.abs(diff));
-  document.getElementById('kpi-meta-card').className ='kpi '+(diff>=0?'ok':'danger');
-  document.getElementById('meta-pct').textContent=Math.max(0,pct)+'%';
-  document.getElementById('meta-bar-label').textContent='Progresso para meta de '+fmtUSD(metaUSD)+' (≈ R$ 10.000)';
-  var bar=document.getElementById('meta-bar');
-  bar.style.width=Math.max(0,pct)+'%';
-  bar.className='bar-fill '+(pct>=100?'ok':pct>=60?'warn':'bad');
+function kpis(m){
+  var rec=soma(CATS.receitas,m),fix=soma(CATS.fixas,m),vari=soma(CATS.variaveis,m),ext=soma(CATS.extras,m);
+  var desp=fix.real+vari.real+ext.real,saldo=rec.real-desp,meta=10000*usd;
+  var pct=Math.min(100,Math.max(0,Math.round((saldo/meta)*100)));
+  document.getElementById('kpi-rec').textContent=fmt(rec.real);
+  document.getElementById('kpi-desp').textContent=fmt(desp);
+  var ks=document.getElementById('kpi-saldo');
+  ks.textContent=(saldo<0?'−':'')+fmt(saldo);
+  ks.className='kpi-value '+(saldo>=0?'ok':'bad');
+  document.getElementById('kpi-meta').textContent=fmt(meta);
+  var diff=saldo-meta;
+  document.getElementById('kpi-meta-sub').textContent=diff>=0?'✓ sobram '+fmt(diff):'faltam '+fmt(Math.abs(diff));
+  var pc=document.getElementById('meta-pct'),bar=document.getElementById('meta-bar');
+  var cls=pct>=100?'ok':pct>=60?'warn':'bad';
+  pc.textContent=pct+'%';pc.className='meta-pct '+cls;
+  bar.style.width=pct+'%';bar.className='bar-fill '+cls;
+  document.getElementById('meta-lbl').textContent='Progresso para '+fmt(meta)+' (≈ R$ 10.000)';
+  document.getElementById('meta-diff').textContent=diff>=0?'✓ meta atingida':'faltam '+fmt(Math.abs(diff));
 }
 
 function processarImport(){
-  var txt=document.getElementById('import-text').value.trim();
+  var txt=document.getElementById('import-txt').value.trim();
   var fb=document.getElementById('import-fb');
   if(!txt){fb.className='import-fb err';fb.textContent='Cole o texto do Claude antes de aplicar.';return;}
-  var linhas=txt.split('\n');
-  var ok=[],ig=[];
+  var linhas=txt.split('\n'),ok=[],ig=[];
   for(var i=0;i<linhas.length;i++){
-    var l=linhas[i].trim();
-    if(!l||l.indexOf(':')<0)continue;
-    var m=l.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);
-    if(!m)continue;
-    var k=m[1].toUpperCase().replace(/\s+/g,'_');
-    var valor=parseFloat(m[2].replace(',','.'));
-    var moeda=m[3]?m[3].toUpperCase():'USD';
-    var id=ID_MAP[k];
-    if(!id||isNaN(valor)){ig.push(k);continue;}
-    var v=carregar(mesAtual,id);
-    salvar(mesAtual,id,{orc:v.orc,real:(v.real||0)+valor,currency:moeda});
-    ok.push(k);
+    var l=linhas[i].trim();if(!l||l.indexOf(':')<0)continue;
+    var match=l.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);if(!match)continue;
+    var k=match[1].toUpperCase().replace(/\s+/g,'_'),val=parseFloat(match[2].replace(',','.')),moeda=match[3]?match[3].toUpperCase():'USD';
+    var id=ID_MAP[k];if(!id||isNaN(val)){ig.push(k);continue;}
+    var v=load(mes,id);save(mes,id,{orc:v.orc,real:(v.real||0)+val,cur:moeda});ok.push(k);
   }
-  renderTudo(mesAtual);
-  if(ok.length>0){
-    fb.className='import-fb ok';
-    fb.textContent='✓ '+ok.length+' categoria(s) atualizada(s): '+ok.join(', ')+(ig.length?'  ·  Ignoradas: '+ig.join(', '):'');
-  } else {
-    fb.className='import-fb err';
-    fb.textContent='Nenhuma categoria reconhecida. Verifique o formato (CATEGORIA: valor USD/BRL).';
-  }
+  renderAll(mes);
+  if(ok.length>0){fb.className='import-fb ok';fb.textContent='✓ '+ok.length+' atualizada(s): '+ok.join(', ')+(ig.length?' · ignoradas: '+ig.join(', '):'');}
+  else{fb.className='import-fb err';fb.textContent='Nenhuma categoria reconhecida. Formato: CATEGORIA: valor USD/BRL';}
 }
 
-function limparImport(){
-  document.getElementById('import-text').value='';
-  var fb=document.getElementById('import-fb');
-  fb.className='import-fb';fb.textContent='';
+function limparImport(){document.getElementById('import-txt').value='';var fb=document.getElementById('import-fb');fb.className='import-fb';fb.textContent='';}
+
+function setCurr(c){mCurr=c;document.getElementById('b-usd').className='curr-btn'+(c==='USD'?' active':'');document.getElementById('b-brl').className='curr-btn'+(c==='BRL'?' active':'');convNote();}
+
+function convNote(){
+  var o=parseFloat(document.getElementById('m-orc').value)||0,r=parseFloat(document.getElementById('m-real').value)||0,el=document.getElementById('m-conv');
+  if(mCurr==='BRL'&&(o>0||r>0)){el.textContent='R$1 = $'+usd.toFixed(4)+(o>0?' · orçado → '+fmt(o*usd):'')+(r>0?' · realizado → '+fmt(r*usd):'');}
+  else el.textContent='';
 }
 
-function setCurr(c){
-  modalCurr=c;
-  document.getElementById('btn-usd').className=c==='USD'?'active':'';
-  document.getElementById('btn-brl').className=c==='BRL'?'active':'';
-  atualizarConvModal();
+function abrirModal(m,id,nome,ibrl){
+  var v=load(m,id),sc=v.cur||(ibrl?'BRL':'USD');
+  mCtx={mes:m,id:id};mCurr=sc;
+  document.getElementById('m-title').textContent=nome;
+  document.getElementById('m-orc').value=v.orc||'';
+  document.getElementById('m-real').value=v.real||'';
+  document.getElementById('b-usd').className='curr-btn'+(sc==='USD'?' active':'');
+  document.getElementById('b-brl').className='curr-btn'+(sc==='BRL'?' active':'');
+  convNote();document.getElementById('overlay').classList.add('open');
 }
-
-function atualizarConvModal(){
-  var orc=parseFloat(document.getElementById('modal-orc').value)||0;
-  var real=parseFloat(document.getElementById('modal-real').value)||0;
-  var conv=document.getElementById('modal-conv');
-  if(modalCurr==='BRL'&&(orc>0||real>0)){
-    conv.textContent='Taxa: R$ 1 = $ '+brlToUsd.toFixed(4)+
-      (orc>0?'  ·  Orçado → '+fmtUSD(orc*brlToUsd):'')+
-      (real>0?'  ·  Realizado → '+fmtUSD(real*brlToUsd):'');
-  } else { conv.textContent=''; }
-}
-
-function abrirModal(mes,id,nome,isBrl){
-  var v=carregar(mes,id);
-  var sc=v.currency||(isBrl?'BRL':'USD');
-  modalCtx={mes:mes,id:id};
-  modalCurr=sc;
-  document.getElementById('modal-title').textContent=nome;
-  document.getElementById('modal-orc').value =v.orc||'';
-  document.getElementById('modal-real').value=v.real||'';
-  document.getElementById('btn-usd').className=sc==='USD'?'active':'';
-  document.getElementById('btn-brl').className=sc==='BRL'?'active':'';
-  atualizarConvModal();
-  document.getElementById('modal-bg').classList.add('open');
-}
-
-function fecharModal(){
-  document.getElementById('modal-bg').classList.remove('open');
-  modalCtx=null;
-}
-
+function fecharModal(){document.getElementById('overlay').classList.remove('open');mCtx=null;}
 function salvarModal(){
-  if(!modalCtx)return;
-  var orc=parseFloat(document.getElementById('modal-orc').value)||0;
-  var real=parseFloat(document.getElementById('modal-real').value)||0;
-  salvar(modalCtx.mes,modalCtx.id,{orc:orc,real:real,currency:modalCurr});
-  fecharModal();
-  renderTudo(mesAtual);
+  if(!mCtx)return;
+  var o=parseFloat(document.getElementById('m-orc').value)||0,r=parseFloat(document.getElementById('m-real').value)||0;
+  save(mCtx.mes,mCtx.id,{orc:o,real:r,cur:mCurr});fecharModal();renderAll(mes);
 }
 
-function trocarMes(){
-  mesAtual=document.getElementById('mes-sel').value;
-  renderTudo(mesAtual);
-}
+function trocarMes(){mes=document.getElementById('mes-sel').value;renderAll(mes);}
 
 async function atualizarCotacao(){
-  var el=document.getElementById('dolar-val');
-  el.textContent='...';
+  var el=document.getElementById('dolar-val');el.textContent='...';
   try{
-    var r=await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
-    var j=await r.json();
-    if(j.rates&&j.rates.USD)brlToUsd=j.rates.USD;
-    el.textContent=brlToUsd.toFixed(4);
-    document.getElementById('rate-note').textContent='Cotação atualizada · R$ 1 = $ '+brlToUsd.toFixed(4);
-    renderTudo(mesAtual);
-  }catch(e){ el.textContent=brlToUsd.toFixed(4); }
+    var r=await fetch('https://api.exchangerate-api.com/v4/latest/BRL'),j=await r.json();
+    if(j.rates&&j.rates.USD)usd=j.rates.USD;
+    el.textContent=usd.toFixed(4);
+    document.getElementById('rate-note').textContent='Cotação: R$1 = $'+usd.toFixed(4);
+    renderAll(mes);
+  }catch(e){el.textContent=usd.toFixed(4);}
 }
 
-document.getElementById('modal-bg').addEventListener('click',function(e){ if(e.target===this)fecharModal(); });
-document.getElementById('modal-orc').addEventListener('input',atualizarConvModal);
-document.getElementById('modal-real').addEventListener('input',atualizarConvModal);
+document.getElementById('overlay').addEventListener('click',function(e){if(e.target===this)fecharModal();});
+document.getElementById('m-orc').addEventListener('input',convNote);
+document.getElementById('m-real').addEventListener('input',convNote);
 
-gerarMeses();
-atualizarCotacao();
-renderTudo(mesAtual);
+gerarMeses();atualizarCotacao();renderAll(mes);
 </script>
 
 
