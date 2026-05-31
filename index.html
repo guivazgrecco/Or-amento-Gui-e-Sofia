@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Financeiro · Guilherme & Sofia</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; }
+.container { max-width: 900px; margin: 0 auto; padding: 2rem 1.25rem; }
+h1 { font-size: 20px; font-weight: 500; }
+.subtitle { font-size: 13px; color: #888; margin-top: 2px; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
+.header-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.dolar-badge { font-size: 12px; color: #185FA5; background: #E6F1FB; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; gap: 4px; cursor: pointer; border: none; }
+.dolar-badge:hover { background: #B5D4F4; }
+select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 1.5rem; }
+.kpi { background: #efefed; border-radius: 10px; padding: 14px 16px; }
+.kpi-label { font-size: 12px; color: #888; margin-bottom: 4px; display: flex; align-items: center; gap: 4px; }
+.kpi-value { font-size: 22px; font-weight: 500; color: #1a1a1a; }
+.kpi-sub { font-size: 11px; color: #aaa; margin-top: 2px; }
+.kpi.ok .kpi-value { color: #0F6E56; }
+.kpi.danger .kpi-value { color: #A32D2D; }
+.meta-bar-wrap { background: #efefed; border-radius: 10px; padding: 14px 16px; margin-bottom: 1.5rem; }
+.meta-bar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.meta-bar-header span { font-size: 13px; color: #888; }
+.meta-bar-header strong { font-size: 14px; font-weight: 500; }
+.bar-track { height: 10px; background: #ddd; border-radius: 999px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
+.bar-fill.ok   { background: #1D9E75; }
+.bar-fill.warn { background: #BA7517; }
+.bar-fill.bad  { background: #E24B4A; }
+.rate-note { font-size: 11px; color: #aaa; margin-top: 8px; text-align: right; }
+.sections { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+@media (max-width: 620px) { .sections { grid-template-columns: 1fr; } }
+.section-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; }
+.section-full { grid-column: 1 / -1; }
+.section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.col-headers { display: grid; grid-template-columns: 1fr 80px 80px 26px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
+.col-h { font-size: 11px; color: #bbb; text-align: right; }
+.col-h:first-child { text-align: left; }
+.item-row { display: grid; grid-template-columns: 1fr 80px 80px 26px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+.item-row:last-child { border-bottom: none; }
+.item-name { font-size: 13px; color: #1a1a1a; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.item-val { font-size: 13px; text-align: right; }
+.item-val.orc   { color: #aaa; }
+.item-val.over  { color: #A32D2D; font-weight: 500; }
+.item-val.realok{ color: #0F6E56; font-weight: 500; }
+.item-val.zero  { color: #ccc; }
+.edit-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 15px; padding: 3px; border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+.edit-btn:hover { color: #888; background: #f0f0f0; }
+.tag-brl { font-size: 10px; padding: 2px 5px; border-radius: 999px; background: #FAEEDA; color: #854F0B; white-space: nowrap; }
+.footer-btn { display: flex; justify-content: center; margin-top: 1rem; }
+.footer-btn a { font-size: 13px; padding: 8px 20px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.footer-btn a:hover { background: #f5f5f3; }
+/* Modal */
+.modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
+.modal-bg.open { display: flex; }
+.modal { background: #fff; border-radius: 14px; border: 1px solid #e8e8e6; padding: 22px; width: 340px; max-width: 92vw; }
+.modal h3 { font-size: 15px; font-weight: 500; margin-bottom: 4px; }
+.modal-hint { font-size: 12px; color: #888; margin-bottom: 16px; }
+.modal label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
+.modal input[type=number] { width: 100%; padding: 8px 10px; font-size: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; outline: none; }
+.modal input[type=number]:focus { border-color: #185FA5; }
+.currency-toggle { display: inline-flex; gap: 4px; background: #f0f0f0; border-radius: 8px; padding: 3px; margin-bottom: 14px; }
+.currency-toggle button { background: none; border: none; cursor: pointer; font-size: 12px; padding: 4px 10px; border-radius: 6px; color: #888; }
+.currency-toggle button.active { background: #fff; color: #185FA5; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.modal-conv { font-size: 11px; color: #aaa; margin-bottom: 10px; min-height: 16px; }
+.modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
+.modal-btns button { font-size: 13px; padding: 7px 16px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; }
+.modal-btns button.primary { background: #1a1a1a; color: #fff; border-color: transparent; }
+.modal-btns button:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div>
+      <h1><i class="ti ti-chart-pie" style="font-size:18px;vertical-align:-2px;margin-right:6px"></i>Dashboard financeiro</h1>
+      <p class="subtitle">Guilherme & Sofia · tudo em USD</p>
+    </div>
+    <div class="header-right">
+      <button class="dolar-badge" onclick="atualizarCotacao()" title="Clique para atualizar cotação">
+        <i class="ti ti-refresh"></i>
+        R$ 1 = $ <span id="dolar-val">--</span>
+      </button>
+      <select id="mes-sel" onchange="trocarMes()"></select>
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi">
+      <div class="kpi-label"><i class="ti ti-arrow-up"></i> Receita total</div>
+      <div class="kpi-value" id="kpi-receita">$ 0</div>
+      <div class="kpi-sub">realizado em USD</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label"><i class="ti ti-arrow-down"></i> Despesas totais</div>
+      <div class="kpi-value" id="kpi-despesas">$ 0</div>
+      <div class="kpi-sub">realizado em USD</div>
+    </div>
+    <div class="kpi" id="kpi-saldo-card">
+      <div class="kpi-label"><i class="ti ti-scale"></i> Saldo do mês</div>
+      <div class="kpi-value" id="kpi-saldo">$ 0</div>
+      <div class="kpi-sub">receita − despesas</div>
+    </div>
+    <div class="kpi" id="kpi-meta-card">
+      <div class="kpi-label"><i class="ti ti-target"></i> Meta de poupança</div>
+      <div class="kpi-value" id="kpi-meta-val">$ --</div>
+      <div class="kpi-sub" id="kpi-meta-sub">≈ R$ 10.000</div>
+    </div>
+  </div>
+
+  <div class="meta-bar-wrap">
+    <div class="meta-bar-header">
+      <span id="meta-bar-label">Progresso para meta de R$ 10.000</span>
+      <strong id="meta-pct">0%</strong>
+    </div>
+    <div class="bar-track"><div class="bar-fill bad" id="meta-bar" style="width:0%"></div></div>
+    <div class="rate-note" id="rate-note"></div>
+  </div>
+
+  <div class="sections">
+    <div class="section-card section-full">
+      <div class="section-title"><i class="ti ti-coin"></i> Receitas</div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h"></span></div>
+      <div id="receitas-list"></div>
+    </div>
+    <div class="section-card">
+      <div class="section-title"><i class="ti ti-home"></i> Despesas fixas</div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h"></span></div>
+      <div id="fixas-list"></div>
+    </div>
+    <div class="section-card">
+      <div class="section-title"><i class="ti ti-shopping-cart"></i> Despesas variáveis</div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h"></span></div>
+      <div id="variaveis-list"></div>
+    </div>
+    <div class="section-card section-full">
+      <div class="section-title"><i class="ti ti-sparkles"></i> Extras</div>
+      <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h"></span></div>
+      <div id="extras-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    <h3 id="modal-title">Editar valor</h3>
+    <p class="modal-hint">Valores são exibidos convertidos para USD.</p>
+    <label>Moeda que você vai digitar</label>
+    <div class="currency-toggle">
+      <button id="btn-usd" class="active" onclick="setCurrency('USD')">USD $</button>
+      <button id="btn-brl" onclick="setCurrency('BRL')">BRL R$</button>
+    </div>
+    <label>Orçado</label>
+    <input type="number" id="modal-orc" placeholder="0" min="0" step="0.01">
+    <label>Realizado</label>
+    <input type="number" id="modal-real" placeholder="0" min="0" step="0.01">
+    <div class="modal-conv" id="modal-conv"></div>
+    <div class="modal-btns">
+      <button onclick="fecharModal()">Cancelar</button>
+      <button class="primary" onclick="salvarModal()">Salvar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = {
+  receitas: [
+    { id:'sal_gui',     nome:'Salário Guilherme',    brl:true  },
+    { id:'fapesp',      nome:'Bolsa FAPESP (Sofia)', brl:false },
+    { id:'atend',       nome:'Atendimentos (Sofia)', brl:true  },
+  ],
+  fixas: [
+    { id:'aluguel',    nome:'Aluguel' },
+    { id:'energia',    nome:'Energia' },
+    { id:'gas',        nome:'Gás' },
+    { id:'internet',   nome:'Internet' },
+    { id:'tip',        nome:'Tip (cachorro)' },
+    { id:'mercado',    nome:'Mercado' },
+    { id:'seguro',     nome:'Seguro do carro' },
+    { id:'gasolina',   nome:'Gasolina' },
+    { id:'terp_gui',   nome:'Terapia Guilherme' },
+    { id:'terp_sof',   nome:'Terapia Sofia' },
+    { id:'superv',     nome:'Supervisão Sofia' },
+    { id:'cursos',     nome:'Cursos Gui' },
+    { id:'fies',       nome:'Fies' },
+    { id:'inv_cli',    nome:'Investimento Clínica' },
+  ],
+  variaveis: [
+    { id:'rest_bar',    nome:'Restaurante/Bar' },
+    { id:'delivery',    nome:'Delivery' },
+    { id:'med_suple',   nome:'Medicamentos/Suplementos' },
+    { id:'pessoal_gui', nome:'Gastos pessoais Gui' },
+    { id:'pessoal_sof', nome:'Gastos pessoais Sofia' },
+  ],
+  extras: [
+    { id:'eventual',  nome:'Eventualidades' },
+    { id:'presentes', nome:'Presentes' },
+    { id:'casa',      nome:'Compras pra casa' },
+    { id:'uber',      nome:'Uber' },
+  ]
+};
+
+const MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+let mesAtual = '2026-06';
+let brlToUsd = 0.18;
+let modalCtx = null;
+let modalCurrency = 'USD';
+
+function gerarMeses() {
+  const sel = document.getElementById('mes-sel');
+  for (let y = 2026; y <= 2027; y++) {
+    const mStart = y === 2026 ? 6 : 1;
+    for (let m = mStart; m <= 12; m++) {
+      const val = `${y}-${String(m).padStart(2,'0')}`;
+      const opt = document.createElement('option');
+      opt.value = val;
+      opt.textContent = `${MESES[m-1]} ${y}`;
+      if (val === mesAtual) opt.selected = true;
+      sel.appendChild(opt);
+    }
+  }
+}
+
+function chave(mes, id) { return `fin26usd_${mes}_${id}`; }
+function carregar(mes, id) {
+  try { const s = localStorage.getItem(chave(mes,id)); return s ? JSON.parse(s) : {orc:0,real:0,currency:'USD'}; }
+  catch(e) { return {orc:0,real:0,currency:'USD'}; }
+}
+function salvar(mes, id, val) {
+  try { localStorage.setItem(chave(mes,id), JSON.stringify(val)); } catch(e) {}
+}
+function toUSD(val, currency) { return currency === 'BRL' ? val * brlToUsd : val; }
+function fmtUSD(n) { return '$ ' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+
+function renderLista(containerId, items, mes) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  items.forEach(item => {
+    const v = carregar(mes, item.id);
+    const currency = v.currency || (item.brl ? 'BRL' : 'USD');
+    const orcUSD  = toUSD(v.orc,  currency);
+    const realUSD = toUSD(v.real, currency);
+    const over = realUSD > orcUSD && orcUSD > 0;
+    const row = document.createElement('div');
+    row.className = 'item-row';
+    const tag = (item.brl || currency === 'BRL') ? ' <span class="tag-brl">R$→$</span>' : '';
+    let rc = v.real > 0 ? (over ? 'over' : 'realok') : 'zero';
+    row.innerHTML = `
+      <span class="item-name">${item.nome}${tag}</span>
+      <span class="item-val orc">${orcUSD > 0 ? fmtUSD(orcUSD) : '—'}</span>
+      <span class="item-val ${rc}">${realUSD > 0 ? fmtUSD(realUSD) : '—'}</span>
+      <button class="edit-btn" onclick="abrirModal('${mes}','${item.id}','${item.nome.replace(/'/g,"\\'")}',${!!item.brl})" title="Editar">
+        <i class="ti ti-pencil"></i>
+      </button>`;
+    el.appendChild(row);
+  });
+}
+
+function renderTudo(mes) {
+  ['receitas','fixas','variaveis','extras'].forEach(g => renderLista(g+'-list', CATS[g], mes));
+  atualizarKPIs(mes);
+}
+
+function somaGrupo(grupo, mes) {
+  let orc=0, real=0;
+  grupo.forEach(item => {
+    const v = carregar(mes, item.id);
+    const c = v.currency || (item.brl ? 'BRL' : 'USD');
+    orc  += toUSD(v.orc,  c);
+    real += toUSD(v.real, c);
+  });
+  return {orc, real};
+}
+
+function atualizarKPIs(mes) {
+  const rec  = somaGrupo(CATS.receitas,  mes);
+  const fix  = somaGrupo(CATS.fixas,     mes);
+  const vari = somaGrupo(CATS.variaveis, mes);
+  const ext  = somaGrupo(CATS.extras,    mes);
+  const desp = fix.real + vari.real + ext.real;
+  const saldo = rec.real - desp;
+  const metaUSD = 10000 * brlToUsd;
+  const pct = Math.min(100, Math.round((saldo / metaUSD) * 100));
+
+  document.getElementById('kpi-receita').textContent  = fmtUSD(rec.real);
+  document.getElementById('kpi-despesas').textContent = fmtUSD(desp);
+  document.getElementById('kpi-saldo').textContent    = (saldo < 0 ? '−' : '') + fmtUSD(saldo);
+  document.getElementById('kpi-saldo-card').className = 'kpi ' + (saldo >= 0 ? 'ok' : 'danger');
+  document.getElementById('kpi-meta-val').textContent = fmtUSD(metaUSD);
+  const diff = saldo - metaUSD;
+  document.getElementById('kpi-meta-sub').textContent = diff >= 0 ? `✓ sobram ${fmtUSD(diff)}` : `faltam ${fmtUSD(Math.abs(diff))}`;
+  document.getElementById('kpi-meta-card').className  = 'kpi ' + (diff >= 0 ? 'ok' : 'danger');
+  document.getElementById('meta-pct').textContent = Math.max(0,pct) + '%';
+  document.getElementById('meta-bar-label').textContent = `Progresso para meta de ${fmtUSD(metaUSD)} (≈ R$ 10.000)`;
+  const bar = document.getElementById('meta-bar');
+  bar.style.width = Math.max(0,pct) + '%';
+  bar.className = 'bar-fill ' + (pct >= 100 ? 'ok' : pct >= 60 ? 'warn' : 'bad');
+}
+
+function setCurrency(c) {
+  modalCurrency = c;
+  document.getElementById('btn-usd').className = c==='USD' ? 'active' : '';
+  document.getElementById('btn-brl').className = c==='BRL' ? 'active' : '';
+  atualizarConvModal();
+}
+
+function atualizarConvModal() {
+  const orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
+  const real = parseFloat(document.getElementById('modal-real').value) || 0;
+  if (modalCurrency === 'BRL' && (orc > 0 || real > 0)) {
+    document.getElementById('modal-conv').textContent =
+      `Taxa: R$ 1 = $ ${brlToUsd.toFixed(4)} · ` +
+      (orc  > 0 ? `Orçado → ${fmtUSD(orc*brlToUsd)}  ` : '') +
+      (real > 0 ? `Realizado → ${fmtUSD(real*brlToUsd)}` : '');
+  } else {
+    document.getElementById('modal-conv').textContent = '';
+  }
+}
+
+function abrirModal(mes, id, nome, isBrlNativo) {
+  const v = carregar(mes, id);
+  const savedCurrency = v.currency || (isBrlNativo ? 'BRL' : 'USD');
+  modalCtx = { mes, id };
+  modalCurrency = savedCurrency;
+  document.getElementById('modal-title').textContent = nome;
+  document.getElementById('modal-orc').value  = v.orc  || '';
+  document.getElementById('modal-real').value = v.real || '';
+  document.getElementById('btn-usd').className = savedCurrency==='USD' ? 'active' : '';
+  document.getElementById('btn-brl').className = savedCurrency==='BRL' ? 'active' : '';
+  atualizarConvModal();
+  document.getElementById('modal-bg').classList.add('open');
+}
+
+function fecharModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  modalCtx = null;
+}
+
+function salvarModal() {
+  if (!modalCtx) return;
+  const orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
+  const real = parseFloat(document.getElementById('modal-real').value) || 0;
+  salvar(modalCtx.mes, modalCtx.id, { orc, real, currency: modalCurrency });
+  fecharModal();
+  renderTudo(mesAtual);
+}
+
+function trocarMes() {
+  mesAtual = document.getElementById('mes-sel').value;
+  renderTudo(mesAtual);
+}
+
+async function atualizarCotacao() {
+  const el = document.getElementById('dolar-val');
+  el.textContent = '...';
+  try {
+    const r = await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
+    const j = await r.json();
+    if (j.rates && j.rates.USD) brlToUsd = j.rates.USD;
+    el.textContent = brlToUsd.toFixed(4);
+    document.getElementById('rate-note').textContent = `Cotação atualizada · R$ 1 = $ ${brlToUsd.toFixed(4)}`;
+    renderTudo(mesAtual);
+  } catch(e) {
+    el.textContent = brlToUsd.toFixed(4);
+    document.getElementById('rate-note').textContent = 'Usando cotação aproximada';
+  }
+}
+
+document.getElementById('modal-bg').addEventListener('click', function(e) { if (e.target===this) fecharModal(); });
+document.getElementById('modal-orc').addEventListener('input', atualizarConvModal);
+document.getElementById('modal-real').addEventListener('input', atualizarConvModal);
+
+gerarMeses();
+atualizarCotacao();
+renderTudo(mesAtual);
+</script>
+</body>
+</html>
