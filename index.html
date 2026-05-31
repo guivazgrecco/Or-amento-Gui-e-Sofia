@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_2.html -->
+<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_3.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,9 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f3; color: #1a1a1a; min-height: 100vh; }
 .container { max-width: 960px; margin: 0 auto; padding: 2rem 1.5rem; }
+.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
 h1 { font-size: 20px; font-weight: 500; }
 .subtitle { font-size: 13px; color: #888; margin-top: 2px; }
-.header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 12px; }
 .header-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
 .dolar-badge { font-size: 12px; color: #185FA5; background: #E6F1FB; padding: 5px 12px; border-radius: 8px; display: flex; align-items: center; gap: 4px; cursor: pointer; border: none; }
 .dolar-badge:hover { background: #B5D4F4; }
@@ -29,19 +29,33 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .meta-bar-header strong { font-size: 14px; font-weight: 500; }
 .bar-track { height: 10px; background: #ddd; border-radius: 999px; overflow: hidden; }
 .bar-fill { height: 100%; border-radius: 999px; transition: width 0.5s ease; }
-.bar-fill.ok   { background: #1D9E75; }
+.bar-fill.ok { background: #1D9E75; }
 .bar-fill.warn { background: #BA7517; }
-.bar-fill.bad  { background: #E24B4A; }
+.bar-fill.bad { background: #E24B4A; }
 .rate-note { font-size: 11px; color: #aaa; margin-top: 8px; text-align: right; }
+.import-banner { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.import-title { font-size: 13px; font-weight: 500; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.import-banner textarea { width: 100%; font-size: 12px; font-family: 'Menlo','Consolas',monospace; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fafafa; color: #1a1a1a; resize: vertical; min-height: 100px; outline: none; line-height: 1.7; }
+.import-banner textarea:focus { border-color: #185FA5; }
+.import-footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.import-hint { font-size: 11px; color: #aaa; }
+.import-btns { display: flex; gap: 8px; }
+.btn-sec { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #666; cursor: pointer; }
+.btn-sec:hover { background: #f5f5f3; }
+.btn-pri { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: none; background: #1a1a1a; color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
+.btn-pri:hover { background: #333; }
+.import-fb { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; display: none; }
+.import-fb.ok  { display: block; background: #EAF3DE; color: #3B6D11; }
+.import-fb.err { display: block; background: #FCEBEB; color: #A32D2D; }
 .sections { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
 @media (max-width: 680px) { .sections { grid-template-columns: 1fr; } }
 .section-card { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; }
 .section-full { grid-column: 1 / -1; }
 .section-title { font-size: 12px; font-weight: 500; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
-.col-headers { display: grid; grid-template-columns: 1fr 80px 84px 130px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
+.col-headers { display: grid; grid-template-columns: 1fr 80px 84px 140px; gap: 6px; padding-bottom: 6px; margin-bottom: 2px; border-bottom: 1px solid #eee; }
 .col-h { font-size: 11px; color: #bbb; text-align: right; }
 .col-h:first-child { text-align: left; }
-.item-row { display: grid; grid-template-columns: 1fr 80px 84px 130px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
+.item-row { display: grid; grid-template-columns: 1fr 80px 84px 140px; gap: 6px; align-items: center; padding: 6px 0; border-bottom: 1px solid #f0f0f0; }
 .item-row:last-child { border-bottom: none; }
 .item-name { font-size: 13px; color: #1a1a1a; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .item-val { font-size: 13px; text-align: right; }
@@ -49,34 +63,16 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .item-val.over   { color: #A32D2D; font-weight: 500; }
 .item-val.realok { color: #0F6E56; font-weight: 500; }
 .item-val.zero   { color: #ccc; }
-.quick-wrap { display: flex; align-items: center; gap: 3px; justify-content: flex-end; }
-.quick-input { width: 58px; font-size: 11px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; color: #1a1a1a; outline: none; text-align: right; }
+.item-actions { display: flex; align-items: center; gap: 4px; justify-content: flex-end; }
+.quick-input { width: 54px; font-size: 11px; padding: 4px 6px; border: 1px solid #e0e0e0; border-radius: 6px; background: #fafafa; color: #1a1a1a; outline: none; text-align: right; }
 .quick-input:focus { border-color: #185FA5; background: #fff; }
-.quick-add { background: none; border: none; cursor: pointer; color: #1D9E75; font-size: 18px; padding: 1px 2px; border-radius: 4px; display: flex; align-items: center; line-height: 1; }
-.quick-add:hover { background: #EAF3DE; }
-.row-actions { display: flex; align-items: center; gap: 2px; justify-content: flex-end; }
-.edit-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 14px; padding: 3px; border-radius: 4px; display: flex; align-items: center; }
-.edit-btn:hover { color: #888; background: #f0f0f0; }
-.del-btn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 14px; padding: 3px; border-radius: 4px; display: flex; align-items: center; }
-.del-btn:hover { color: #A32D2D; background: #FCEBEB; }
+.btn-add  { background: none; border: none; cursor: pointer; color: #1D9E75; font-size: 18px; padding: 2px; border-radius: 4px; line-height: 1; display: flex; align-items: center; }
+.btn-add:hover  { background: #EAF3DE; }
+.btn-edit { background: none; border: none; cursor: pointer; color: #aaa; font-size: 15px; padding: 2px; border-radius: 4px; display: flex; align-items: center; }
+.btn-edit:hover { color: #555; background: #f0f0f0; }
+.btn-del  { background: none; border: none; cursor: pointer; color: #aaa; font-size: 15px; padding: 2px; border-radius: 4px; display: flex; align-items: center; }
+.btn-del:hover  { color: #A32D2D; background: #FCEBEB; }
 .tag-brl { font-size: 10px; padding: 2px 5px; border-radius: 999px; background: #FAEEDA; color: #854F0B; white-space: nowrap; }
-/* Importador */
-.import-banner { background: #fff; border: 1px solid #e8e8e6; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-.import-banner-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
-.import-banner-header span { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 6px; }
-.import-banner textarea { width: 100%; font-size: 12px; font-family: 'Menlo', 'Consolas', monospace; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; background: #fafafa; color: #1a1a1a; resize: vertical; min-height: 100px; outline: none; line-height: 1.7; }
-.import-banner textarea:focus { border-color: #185FA5; }
-.import-actions { display: flex; gap: 8px; margin-top: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
-.import-hint { font-size: 11px; color: #aaa; }
-.import-actions-right { display: flex; gap: 8px; }
-.btn-secondary { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #666; cursor: pointer; }
-.btn-secondary:hover { background: #f5f5f3; }
-.btn-primary { font-size: 12px; padding: 6px 14px; border-radius: 8px; border: none; background: #1a1a1a; color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 5px; }
-.btn-primary:hover { background: #333; }
-.import-feedback { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; display: none; }
-.import-feedback.ok  { display: block; background: #EAF3DE; color: #3B6D11; }
-.import-feedback.err { display: block; background: #FCEBEB; color: #A32D2D; }
-/* Modal */
 .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 100; align-items: center; justify-content: center; }
 .modal-bg.open { display: flex; }
 .modal { background: #fff; border-radius: 14px; border: 1px solid #e8e8e6; padding: 22px; width: 340px; max-width: 92vw; }
@@ -85,25 +81,25 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
 .modal label { font-size: 12px; color: #888; display: block; margin-bottom: 4px; }
 .modal input[type=number] { width: 100%; padding: 8px 10px; font-size: 14px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 12px; outline: none; background: #fff; color: #1a1a1a; }
 .modal input[type=number]:focus { border-color: #185FA5; }
-.currency-toggle { display: inline-flex; gap: 3px; background: #f0f0f0; border-radius: 8px; padding: 3px; margin-bottom: 14px; }
-.currency-toggle button { background: none; border: none; cursor: pointer; font-size: 12px; padding: 4px 10px; border-radius: 6px; color: #888; }
-.currency-toggle button.active { background: #fff; color: #185FA5; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.curr-toggle { display: inline-flex; gap: 3px; background: #f0f0f0; border-radius: 8px; padding: 3px; margin-bottom: 14px; }
+.curr-toggle button { background: none; border: none; cursor: pointer; font-size: 12px; padding: 4px 10px; border-radius: 6px; color: #888; }
+.curr-toggle button.active { background: #fff; color: #185FA5; font-weight: 500; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 .modal-conv { font-size: 11px; color: #aaa; margin-bottom: 10px; min-height: 16px; }
 .modal-btns { display: flex; gap: 8px; justify-content: flex-end; margin-top: 4px; }
 .modal-btns button { font-size: 13px; padding: 7px 16px; border-radius: 8px; border: 1px solid #ddd; background: #fff; color: #1a1a1a; cursor: pointer; }
 .modal-btns button.primary { background: #1a1a1a; color: #fff; border-color: transparent; }
-.modal-btns button:hover { opacity: 0.85; }
 </style>
 </head>
 <body>
 <div class="container">
+
   <div class="header">
     <div>
       <h1><i class="ti ti-chart-pie" style="font-size:18px;vertical-align:-2px;margin-right:6px"></i>Dashboard financeiro</h1>
       <p class="subtitle">Guilherme &amp; Sofia · tudo em USD</p>
     </div>
     <div class="header-right">
-      <button class="dolar-badge" onclick="atualizarCotacao()" title="Clique para atualizar cotação">
+      <button class="dolar-badge" onclick="atualizarCotacao()">
         <i class="ti ti-refresh"></i> R$ 1 = $ <span id="dolar-val">0.1980</span>
       </button>
       <select id="mes-sel" onchange="trocarMes()"><option value="2026-06">Jun 2026</option><option value="2026-07">Jul 2026</option><option value="2026-08">Ago 2026</option><option value="2026-09">Set 2026</option><option value="2026-10">Out 2026</option><option value="2026-11">Nov 2026</option><option value="2026-12">Dez 2026</option><option value="2027-01">Jan 2027</option><option value="2027-02">Fev 2027</option><option value="2027-03">Mar 2027</option><option value="2027-04">Abr 2027</option><option value="2027-05">Mai 2027</option><option value="2027-06">Jun 2027</option><option value="2027-07">Jul 2027</option><option value="2027-08">Ago 2027</option><option value="2027-09">Set 2027</option><option value="2027-10">Out 2027</option><option value="2027-11">Nov 2027</option><option value="2027-12">Dez 2027</option></select>
@@ -118,457 +114,62 @@ select { font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px sol
   </div>
 
   <div class="meta-bar-wrap">
-    <div class="meta-bar-header">
-      <span id="meta-bar-label">Progresso para meta de $ 1,980 (≈ R$ 10.000)</span>
-      <strong id="meta-pct">0%</strong>
-    </div>
+    <div class="meta-bar-header"><span id="meta-bar-label">Progresso para meta de $ 1,980 (≈ R$ 10.000)</span><strong id="meta-pct">0%</strong></div>
     <div class="bar-track"><div class="bar-fill bad" id="meta-bar" style="width:0%"></div></div>
     <div class="rate-note" id="rate-note">Cotação atualizada · R$ 1 = $ 0.1980</div>
   </div>
 
   <div class="import-banner">
-    <div class="import-banner-header">
-      <span><i class="ti ti-file-import"></i> Importar dados via Claude</span>
-    </div>
+    <div class="import-title"><i class="ti ti-file-import"></i> Importar dados via Claude</div>
     <textarea id="import-text" placeholder="Cole aqui o texto gerado pelo Claude após analisar seu extrato:
 
 MERCADO: 320.50 BRL
 DELIVERY: 45.00 USD
 RESTAURANTE_BAR: 89.00 USD
-GASOLINA: 200.00 BRL
-..."></textarea>
-    <div class="import-actions">
+GASOLINA: 200.00 BRL"></textarea>
+    <div class="import-footer">
       <span class="import-hint">Os valores serão somados ao realizado do mês selecionado.</span>
-      <div class="import-actions-right">
-        <button class="btn-secondary" onclick="limparImport()">Limpar</button>
-        <button class="btn-primary" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar ao dashboard</button>
+      <div class="import-btns">
+        <button class="btn-sec" onclick="limparImport()">Limpar</button>
+        <button class="btn-pri" onclick="processarImport()"><i class="ti ti-check"></i> Aplicar ao dashboard</button>
       </div>
     </div>
-    <div class="import-feedback" id="import-feedback"></div>
+    <div class="import-fb" id="import-fb"></div>
   </div>
 
   <div class="sections">
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-coin"></i> Receitas</div>
       <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="receitas-list"><div class="item-row">
-      <span class="item-name">Salário Guilherme <span class="tag-brl">R$→$</span></span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_sal_gui" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;sal_gui&#39;,&#39;q_sal_gui&#39;,true)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;sal_gui&#39;,&#39;q_sal_gui&#39;,true)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;sal_gui&#39;,&#39;Salário Guilherme&#39;,true)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;sal_gui&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Bolsa FAPESP (Sofia)</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_fapesp" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;fapesp&#39;,&#39;q_fapesp&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;fapesp&#39;,&#39;q_fapesp&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;fapesp&#39;,&#39;Bolsa FAPESP (Sofia)&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;fapesp&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Atendimentos (Sofia) <span class="tag-brl">R$→$</span></span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_atend" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;atend&#39;,&#39;q_atend&#39;,true)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;atend&#39;,&#39;q_atend&#39;,true)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;atend&#39;,&#39;Atendimentos (Sofia)&#39;,true)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;atend&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div></div>
+      <div id="receitas-list"><div class="item-row"><span class="item-name">Salário Guilherme <span class="tag-brl">R$→$</span></span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Bolsa FAPESP (Sofia)</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Atendimentos (Sofia) <span class="tag-brl">R$→$</span></span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-home"></i> Despesas fixas</div>
       <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="fixas-list"><div class="item-row">
-      <span class="item-name">Aluguel</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_aluguel" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;aluguel&#39;,&#39;q_aluguel&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;aluguel&#39;,&#39;q_aluguel&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;aluguel&#39;,&#39;Aluguel&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;aluguel&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Energia</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_energia" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;energia&#39;,&#39;q_energia&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;energia&#39;,&#39;q_energia&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;energia&#39;,&#39;Energia&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;energia&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Gás</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_gas" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;gas&#39;,&#39;q_gas&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;gas&#39;,&#39;q_gas&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;gas&#39;,&#39;Gás&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;gas&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Internet</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_internet" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;internet&#39;,&#39;q_internet&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;internet&#39;,&#39;q_internet&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;internet&#39;,&#39;Internet&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;internet&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Tip (cachorro)</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_tip" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;tip&#39;,&#39;q_tip&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;tip&#39;,&#39;q_tip&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;tip&#39;,&#39;Tip (cachorro)&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;tip&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Mercado</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_mercado" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;mercado&#39;,&#39;q_mercado&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;mercado&#39;,&#39;q_mercado&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;mercado&#39;,&#39;Mercado&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;mercado&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Seguro do carro</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_seguro" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;seguro&#39;,&#39;q_seguro&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;seguro&#39;,&#39;q_seguro&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;seguro&#39;,&#39;Seguro do carro&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;seguro&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Gasolina</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_gasolina" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;gasolina&#39;,&#39;q_gasolina&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;gasolina&#39;,&#39;q_gasolina&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;gasolina&#39;,&#39;Gasolina&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;gasolina&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Terapia Guilherme</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_terp_gui" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;terp_gui&#39;,&#39;q_terp_gui&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;terp_gui&#39;,&#39;q_terp_gui&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;terp_gui&#39;,&#39;Terapia Guilherme&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;terp_gui&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Terapia Sofia</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_terp_sof" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;terp_sof&#39;,&#39;q_terp_sof&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;terp_sof&#39;,&#39;q_terp_sof&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;terp_sof&#39;,&#39;Terapia Sofia&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;terp_sof&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Supervisão Sofia</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_superv" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;superv&#39;,&#39;q_superv&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;superv&#39;,&#39;q_superv&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;superv&#39;,&#39;Supervisão Sofia&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;superv&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Cursos Gui</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_cursos" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;cursos&#39;,&#39;q_cursos&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;cursos&#39;,&#39;q_cursos&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;cursos&#39;,&#39;Cursos Gui&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;cursos&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Fies</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_fies" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;fies&#39;,&#39;q_fies&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;fies&#39;,&#39;q_fies&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;fies&#39;,&#39;Fies&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;fies&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Investimento Clínica</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_inv_cli" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;inv_cli&#39;,&#39;q_inv_cli&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;inv_cli&#39;,&#39;q_inv_cli&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;inv_cli&#39;,&#39;Investimento Clínica&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;inv_cli&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div></div>
+      <div id="fixas-list"><div class="item-row"><span class="item-name">Aluguel</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Energia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gás</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Internet</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Tip (cachorro)</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Mercado</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Seguro do carro</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gasolina</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Terapia Guilherme</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Terapia Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Supervisão Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Cursos Gui</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Fies</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Investimento Clínica</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
     </div>
     <div class="section-card">
       <div class="section-title"><i class="ti ti-shopping-cart"></i> Despesas variáveis</div>
       <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="variaveis-list"><div class="item-row">
-      <span class="item-name">Restaurante/Bar</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_rest_bar" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;rest_bar&#39;,&#39;q_rest_bar&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;rest_bar&#39;,&#39;q_rest_bar&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;rest_bar&#39;,&#39;Restaurante/Bar&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;rest_bar&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Delivery</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_delivery" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;delivery&#39;,&#39;q_delivery&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;delivery&#39;,&#39;q_delivery&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;delivery&#39;,&#39;Delivery&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;delivery&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Medicamentos/Suplementos</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_med_suple" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;med_suple&#39;,&#39;q_med_suple&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;med_suple&#39;,&#39;q_med_suple&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;med_suple&#39;,&#39;Medicamentos/Suplementos&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;med_suple&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Gastos pessoais Gui</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_pessoal_gui" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;pessoal_gui&#39;,&#39;q_pessoal_gui&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;pessoal_gui&#39;,&#39;q_pessoal_gui&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;pessoal_gui&#39;,&#39;Gastos pessoais Gui&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;pessoal_gui&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Gastos pessoais Sofia</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_pessoal_sof" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;pessoal_sof&#39;,&#39;q_pessoal_sof&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;pessoal_sof&#39;,&#39;q_pessoal_sof&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;pessoal_sof&#39;,&#39;Gastos pessoais Sofia&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;pessoal_sof&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div></div>
+      <div id="variaveis-list"><div class="item-row"><span class="item-name">Restaurante/Bar</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Delivery</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Medicamentos/Suplementos</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gastos pessoais Gui</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Gastos pessoais Sofia</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
     </div>
     <div class="section-card section-full">
       <div class="section-title"><i class="ti ti-sparkles"></i> Extras</div>
       <div class="col-headers"><span class="col-h">Item</span><span class="col-h">Orçado</span><span class="col-h">Realizado</span><span class="col-h">ações</span></div>
-      <div id="extras-list"><div class="item-row">
-      <span class="item-name">Eventualidades</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_eventual" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;eventual&#39;,&#39;q_eventual&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;eventual&#39;,&#39;q_eventual&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;eventual&#39;,&#39;Eventualidades&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;eventual&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Presentes</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_presentes" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;presentes&#39;,&#39;q_presentes&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;presentes&#39;,&#39;q_presentes&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;presentes&#39;,&#39;Presentes&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;presentes&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Compras pra casa</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_casa" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;casa&#39;,&#39;q_casa&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;casa&#39;,&#39;q_casa&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;casa&#39;,&#39;Compras pra casa&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;casa&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div><div class="item-row">
-      <span class="item-name">Uber</span>
-      <span class="item-val orc">—</span>
-      <span class="item-val zero">—</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="q_uber" type="number" placeholder="0" min="0" step="0.01" onkeydown="if(event.key===&#39;Enter&#39;) somarRapido(&#39;2026-06&#39;,&#39;uber&#39;,&#39;q_uber&#39;,false)">
-        <button class="quick-add" onclick="somarRapido(&#39;2026-06&#39;,&#39;uber&#39;,&#39;q_uber&#39;,false)" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal(&#39;2026-06&#39;,&#39;uber&#39;,&#39;Uber&#39;,false)" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem(&#39;2026-06&#39;,&#39;uber&#39;)" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div></div></div>
+      <div id="extras-list"><div class="item-row"><span class="item-name">Eventualidades</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Presentes</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Compras pra casa</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div><div class="item-row"><span class="item-name">Uber</span><span class="item-val orc">—</span><span class="item-val zero">—</span><div class="item-actions"><input class="quick-input" type="number" placeholder="0" min="0" step="0.01"><button class="btn-add" title="Somar"><i class="ti ti-circle-plus"></i></button><button class="btn-edit" title="Editar total"><i class="ti ti-pencil"></i></button><button class="btn-del" title="Zerar realizado"><i class="ti ti-trash"></i></button></div></div></div>
     </div>
   </div>
+
 </div>
 
 <div class="modal-bg" id="modal-bg">
   <div class="modal">
-    <h3 id="modal-title">Editar valor</h3>
+    <h3 id="modal-title">Aluguel</h3>
     <p class="modal-hint">Edita o valor total diretamente.</p>
     <label>Moeda</label>
-    <div class="currency-toggle">
-      <button id="btn-usd" class="active" onclick="setCurrency(&#39;USD&#39;)">USD $</button>
-      <button id="btn-brl" onclick="setCurrency(&#39;BRL&#39;)">BRL R$</button>
+    <div class="curr-toggle">
+      <button id="btn-usd" class="active" onclick="setCurr(&#39;USD&#39;)">USD $</button>
+      <button id="btn-brl" onclick="setCurr(&#39;BRL&#39;)" class="">BRL R$</button>
     </div>
     <label>Orçado</label>
     <input type="number" id="modal-orc" placeholder="0" min="0" step="0.01">
@@ -583,33 +184,44 @@ GASOLINA: 200.00 BRL
 </div>
 
 <script>
-const CATS = {
+var CATS = {
   receitas: [
-    { id:'sal_gui', nome:'Salário Guilherme', brl:true },
-    { id:'fapesp',  nome:'Bolsa FAPESP (Sofia)', brl:false },
-    { id:'atend',   nome:'Atendimentos (Sofia)', brl:true },
+    {id:'sal_gui', nome:'Salário Guilherme', brl:true},
+    {id:'fapesp',  nome:'Bolsa FAPESP (Sofia)', brl:false},
+    {id:'atend',   nome:'Atendimentos (Sofia)', brl:true}
   ],
   fixas: [
-    { id:'aluguel', nome:'Aluguel' }, { id:'energia', nome:'Energia' },
-    { id:'gas', nome:'Gás' }, { id:'internet', nome:'Internet' },
-    { id:'tip', nome:'Tip (cachorro)' }, { id:'mercado', nome:'Mercado' },
-    { id:'seguro', nome:'Seguro do carro' }, { id:'gasolina', nome:'Gasolina' },
-    { id:'terp_gui', nome:'Terapia Guilherme' }, { id:'terp_sof', nome:'Terapia Sofia' },
-    { id:'superv', nome:'Supervisão Sofia' }, { id:'cursos', nome:'Cursos Gui' },
-    { id:'fies', nome:'Fies' }, { id:'inv_cli', nome:'Investimento Clínica' },
+    {id:'aluguel',   nome:'Aluguel'},
+    {id:'energia',   nome:'Energia'},
+    {id:'gas',       nome:'Gás'},
+    {id:'internet',  nome:'Internet'},
+    {id:'tip',       nome:'Tip (cachorro)'},
+    {id:'mercado',   nome:'Mercado'},
+    {id:'seguro',    nome:'Seguro do carro'},
+    {id:'gasolina',  nome:'Gasolina'},
+    {id:'terp_gui',  nome:'Terapia Guilherme'},
+    {id:'terp_sof',  nome:'Terapia Sofia'},
+    {id:'superv',    nome:'Supervisão Sofia'},
+    {id:'cursos',    nome:'Cursos Gui'},
+    {id:'fies',      nome:'Fies'},
+    {id:'inv_cli',   nome:'Investimento Clínica'}
   ],
   variaveis: [
-    { id:'rest_bar', nome:'Restaurante/Bar' }, { id:'delivery', nome:'Delivery' },
-    { id:'med_suple', nome:'Medicamentos/Suplementos' },
-    { id:'pessoal_gui', nome:'Gastos pessoais Gui' }, { id:'pessoal_sof', nome:'Gastos pessoais Sofia' },
+    {id:'rest_bar',    nome:'Restaurante/Bar'},
+    {id:'delivery',    nome:'Delivery'},
+    {id:'med_suple',   nome:'Medicamentos/Suplementos'},
+    {id:'pessoal_gui', nome:'Gastos pessoais Gui'},
+    {id:'pessoal_sof', nome:'Gastos pessoais Sofia'}
   ],
   extras: [
-    { id:'eventual', nome:'Eventualidades' }, { id:'presentes', nome:'Presentes' },
-    { id:'casa', nome:'Compras pra casa' }, { id:'uber', nome:'Uber' },
+    {id:'eventual',  nome:'Eventualidades'},
+    {id:'presentes', nome:'Presentes'},
+    {id:'casa',      nome:'Compras pra casa'},
+    {id:'uber',      nome:'Uber'}
   ]
 };
 
-const ID_MAP = {
+var ID_MAP = {
   SAL_GUI:'sal_gui', SALARIO_GUILHERME:'sal_gui', SALARIO:'sal_gui',
   FAPESP:'fapesp', BOLSA_FAPESP:'fapesp',
   ATEND:'atend', ATENDIMENTOS:'atend', ATENDIMENTOS_SOFIA:'atend',
@@ -625,227 +237,304 @@ const ID_MAP = {
   PESSOAL_GUI:'pessoal_gui', GASTOS_GUI:'pessoal_gui', GASTOS_PESSOAIS_GUI:'pessoal_gui',
   PESSOAL_SOF:'pessoal_sof', GASTOS_SOFIA:'pessoal_sof', GASTOS_PESSOAIS_SOFIA:'pessoal_sof',
   EVENTUAL:'eventual', EVENTUALIDADES:'eventual', PRESENTES:'presentes',
-  CASA:'casa', COMPRAS_CASA:'casa', UBER:'uber',
+  CASA:'casa', COMPRAS_CASA:'casa', UBER:'uber'
 };
 
-const MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-let mesAtual = '2026-06';
-let brlToUsd = 0.18;
-let modalCtx = null;
-let modalCurrency = 'USD';
+var MESES = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+var mesAtual = '2026-06';
+var brlToUsd = 0.18;
+var modalCtx = null;
+var modalCurr = 'USD';
 
 function gerarMeses() {
-  const sel = document.getElementById('mes-sel');
-  for (let y = 2026; y <= 2027; y++) {
-    const mStart = y === 2026 ? 6 : 1;
-    for (let m = mStart; m <= 12; m++) {
-      const val = `${y}-${String(m).padStart(2,'0')}`;
-      const opt = document.createElement('option');
-      opt.value = val; opt.textContent = `${MESES[m-1]} ${y}`;
+  var sel = document.getElementById('mes-sel');
+  for (var y = 2026; y <= 2027; y++) {
+    var mStart = y === 2026 ? 6 : 1;
+    for (var m = mStart; m <= 12; m++) {
+      var val = y + '-' + (m < 10 ? '0' : '') + m;
+      var opt = document.createElement('option');
+      opt.value = val;
+      opt.textContent = MESES[m-1] + ' ' + y;
       if (val === mesAtual) opt.selected = true;
       sel.appendChild(opt);
     }
   }
 }
 
-function chave(mes, id) { return `fin26usd_${mes}_${id}`; }
+function chave(mes, id) { return 'fin26usd_' + mes + '_' + id; }
+
 function carregar(mes, id) {
-  try { const s = localStorage.getItem(chave(mes,id)); return s ? JSON.parse(s) : {orc:0,real:0,currency:'USD'}; }
-  catch(e) { return {orc:0,real:0,currency:'USD'}; }
+  try {
+    var s = localStorage.getItem(chave(mes, id));
+    return s ? JSON.parse(s) : {orc:0, real:0, currency:'USD'};
+  } catch(e) { return {orc:0, real:0, currency:'USD'}; }
 }
-function salvar(mes, id, val) { try { localStorage.setItem(chave(mes,id), JSON.stringify(val)); } catch(e) {} }
-function toUSD(val, currency) { return currency === 'BRL' ? val * brlToUsd : val; }
-function fmtUSD(n) { return '$ ' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:0,maximumFractionDigits:0}); }
+
+function salvar(mes, id, val) {
+  try { localStorage.setItem(chave(mes, id), JSON.stringify(val)); } catch(e) {}
+}
+
+function toUSD(val, currency) {
+  return currency === 'BRL' ? val * brlToUsd : val;
+}
+
+function fmtUSD(n) {
+  return '$ ' + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0});
+}
 
 function renderLista(containerId, items, mes) {
-  const el = document.getElementById(containerId);
+  var el = document.getElementById(containerId);
   el.innerHTML = '';
-  items.forEach(item => {
-    const v = carregar(mes, item.id);
-    const currency = v.currency || (item.brl ? 'BRL' : 'USD');
-    const orcUSD  = toUSD(v.orc, currency);
-    const realUSD = toUSD(v.real, currency);
-    const over = realUSD > orcUSD && orcUSD > 0;
-    const row = document.createElement('div');
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var v = carregar(mes, item.id);
+    var currency = v.currency || (item.brl ? 'BRL' : 'USD');
+    var orcUSD  = toUSD(v.orc,  currency);
+    var realUSD = toUSD(v.real, currency);
+    var over = realUSD > orcUSD && orcUSD > 0;
+    var rc = v.real > 0 ? (over ? 'over' : 'realok') : 'zero';
+    var tag = (item.brl || currency === 'BRL') ? '<span class="tag-brl">R$→$</span>' : '';
+    var row = document.createElement('div');
     row.className = 'item-row';
-    const tag = (item.brl || currency === 'BRL') ? ' <span class="tag-brl">R$→$</span>' : '';
-    let rc = v.real > 0 ? (over ? 'over' : 'realok') : 'zero';
-    const qid = 'q_' + item.id;
-    row.innerHTML = `
-      <span class="item-name">${item.nome}${tag}</span>
-      <span class="item-val orc">${orcUSD > 0 ? fmtUSD(orcUSD) : '—'}</span>
-      <span class="item-val ${rc}">${realUSD > 0 ? fmtUSD(realUSD) : '—'}</span>
-      <div class="quick-wrap">
-        <input class="quick-input" id="${qid}" type="number" placeholder="0" min="0" step="0.01"
-          onkeydown="if(event.key==='Enter') somarRapido('${mes}','${item.id}','${qid}',${!!item.brl})">
-        <button class="quick-add" onclick="somarRapido('${mes}','${item.id}','${qid}',${!!item.brl})" title="Somar">
-          <i class="ti ti-circle-plus"></i>
-        </button>
-        <button class="edit-btn" onclick="abrirModal('${mes}','${item.id}','${item.nome.replace(/'/g,"\\'")}',${!!item.brl})" title="Editar total">
-          <i class="ti ti-pencil"></i>
-        </button>
-        <button class="del-btn" onclick="zerarItem('${mes}','${item.id}')" title="Zerar realizado">
-          <i class="ti ti-trash"></i>
-        </button>
-      </div>`;
+
+    var nameSpan = document.createElement('span');
+    nameSpan.className = 'item-name';
+    nameSpan.innerHTML = item.nome + (tag ? ' ' + tag : '');
+
+    var orcSpan = document.createElement('span');
+    orcSpan.className = 'item-val orc';
+    orcSpan.textContent = orcUSD > 0 ? fmtUSD(orcUSD) : '—';
+
+    var realSpan = document.createElement('span');
+    realSpan.className = 'item-val ' + rc;
+    realSpan.textContent = realUSD > 0 ? fmtUSD(realUSD) : '—';
+
+    var actDiv = document.createElement('div');
+    actDiv.className = 'item-actions';
+
+    var qInput = document.createElement('input');
+    qInput.className = 'quick-input';
+    qInput.type = 'number';
+    qInput.placeholder = '0';
+    qInput.min = '0';
+    qInput.step = '0.01';
+    (function(mid, miid, inp, ibrl) {
+      inp.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') somarRapido(mid, miid, inp, ibrl);
+      });
+    })(mes, item.id, qInput, !!item.brl);
+
+    var addBtn = document.createElement('button');
+    addBtn.className = 'btn-add';
+    addBtn.title = 'Somar';
+    addBtn.innerHTML = '<i class="ti ti-circle-plus"></i>';
+    (function(mid, miid, inp, ibrl) {
+      addBtn.addEventListener('click', function() { somarRapido(mid, miid, inp, ibrl); });
+    })(mes, item.id, qInput, !!item.brl);
+
+    var editBtn = document.createElement('button');
+    editBtn.className = 'btn-edit';
+    editBtn.title = 'Editar total';
+    editBtn.innerHTML = '<i class="ti ti-pencil"></i>';
+    (function(mid, miid, mname, ibrl) {
+      editBtn.addEventListener('click', function() { abrirModal(mid, miid, mname, ibrl); });
+    })(mes, item.id, item.nome, !!item.brl);
+
+    var delBtn = document.createElement('button');
+    delBtn.className = 'btn-del';
+    delBtn.title = 'Zerar realizado';
+    delBtn.innerHTML = '<i class="ti ti-trash"></i>';
+    (function(mid, miid) {
+      delBtn.addEventListener('click', function() { zerarItem(mid, miid); });
+    })(mes, item.id);
+
+    actDiv.appendChild(qInput);
+    actDiv.appendChild(addBtn);
+    actDiv.appendChild(editBtn);
+    actDiv.appendChild(delBtn);
+
+    row.appendChild(nameSpan);
+    row.appendChild(orcSpan);
+    row.appendChild(realSpan);
+    row.appendChild(actDiv);
     el.appendChild(row);
-  });
+  }
 }
 
-function somarRapido(mes, id, qid, isBrl) {
-  const input = document.getElementById(qid);
-  const valor = parseFloat(input.value);
+function somarRapido(mes, id, input, isBrl) {
+  var valor = parseFloat(input.value);
   if (!valor || valor <= 0) { input.focus(); return; }
-  const v = carregar(mes, id);
-  const currency = v.currency || (isBrl ? 'BRL' : 'USD');
-  salvar(mes, id, { orc: v.orc, real: (v.real || 0) + valor, currency });
+  var v = carregar(mes, id);
+  var currency = v.currency || (isBrl ? 'BRL' : 'USD');
+  salvar(mes, id, {orc: v.orc, real: (v.real || 0) + valor, currency: currency});
   input.value = '';
   renderTudo(mesAtual);
 }
 
 function zerarItem(mes, id) {
   if (!confirm('Zerar o realizado deste item?')) return;
-  const v = carregar(mes, id);
-  salvar(mes, id, { orc: v.orc, real: 0, currency: v.currency || 'USD' });
+  var v = carregar(mes, id);
+  salvar(mes, id, {orc: v.orc, real: 0, currency: v.currency || 'USD'});
   renderTudo(mesAtual);
 }
 
 function renderTudo(mes) {
-  ['receitas','fixas','variaveis','extras'].forEach(g => renderLista(g+'-list', CATS[g], mes));
+  renderLista('receitas-list',  CATS.receitas,  mes);
+  renderLista('fixas-list',     CATS.fixas,     mes);
+  renderLista('variaveis-list', CATS.variaveis, mes);
+  renderLista('extras-list',    CATS.extras,    mes);
   atualizarKPIs(mes);
 }
 
 function somaGrupo(grupo, mes) {
-  let orc=0, real=0;
-  grupo.forEach(item => {
-    const v = carregar(mes, item.id);
-    const c = v.currency || (item.brl ? 'BRL' : 'USD');
-    orc  += toUSD(v.orc, c);
+  var orc = 0, real = 0;
+  for (var i = 0; i < grupo.length; i++) {
+    var v = carregar(mes, grupo[i].id);
+    var c = v.currency || (grupo[i].brl ? 'BRL' : 'USD');
+    orc  += toUSD(v.orc,  c);
     real += toUSD(v.real, c);
-  });
-  return {orc, real};
+  }
+  return {orc: orc, real: real};
 }
 
 function atualizarKPIs(mes) {
-  const rec  = somaGrupo(CATS.receitas, mes);
-  const fix  = somaGrupo(CATS.fixas, mes);
-  const vari = somaGrupo(CATS.variaveis, mes);
-  const ext  = somaGrupo(CATS.extras, mes);
-  const desp  = fix.real + vari.real + ext.real;
-  const saldo = rec.real - desp;
-  const metaUSD = 10000 * brlToUsd;
-  const pct = Math.min(100, Math.round((saldo / metaUSD) * 100));
+  var rec  = somaGrupo(CATS.receitas,  mes);
+  var fix  = somaGrupo(CATS.fixas,     mes);
+  var vari = somaGrupo(CATS.variaveis, mes);
+  var ext  = somaGrupo(CATS.extras,    mes);
+  var desp  = fix.real + vari.real + ext.real;
+  var saldo = rec.real - desp;
+  var metaUSD = 10000 * brlToUsd;
+  var pct = Math.min(100, Math.round((saldo / metaUSD) * 100));
+
   document.getElementById('kpi-receita').textContent  = fmtUSD(rec.real);
   document.getElementById('kpi-despesas').textContent = fmtUSD(desp);
   document.getElementById('kpi-saldo').textContent    = (saldo < 0 ? '−' : '') + fmtUSD(saldo);
   document.getElementById('kpi-saldo-card').className = 'kpi ' + (saldo >= 0 ? 'ok' : 'danger');
   document.getElementById('kpi-meta-val').textContent = fmtUSD(metaUSD);
-  const diff = saldo - metaUSD;
+  var diff = saldo - metaUSD;
   document.getElementById('kpi-meta-sub').textContent = diff >= 0 ? '✓ sobram ' + fmtUSD(diff) : 'faltam ' + fmtUSD(Math.abs(diff));
   document.getElementById('kpi-meta-card').className  = 'kpi ' + (diff >= 0 ? 'ok' : 'danger');
-  document.getElementById('meta-pct').textContent = Math.max(0,pct) + '%';
+  document.getElementById('meta-pct').textContent = Math.max(0, pct) + '%';
   document.getElementById('meta-bar-label').textContent = 'Progresso para meta de ' + fmtUSD(metaUSD) + ' (≈ R$ 10.000)';
-  const bar = document.getElementById('meta-bar');
-  bar.style.width = Math.max(0,pct) + '%';
+  var bar = document.getElementById('meta-bar');
+  bar.style.width = Math.max(0, pct) + '%';
   bar.className = 'bar-fill ' + (pct >= 100 ? 'ok' : pct >= 60 ? 'warn' : 'bad');
 }
 
 function processarImport() {
-  const txt = document.getElementById('import-text').value.trim();
-  const fb  = document.getElementById('import-feedback');
-  if (!txt) { fb.className = 'import-feedback err'; fb.textContent = 'Cole o texto gerado pelo Claude antes de aplicar.'; return; }
-  const linhas = txt.split('\n').map(l => l.trim()).filter(l => l && l.includes(':'));
-  let aplicados = [], ignorados = [];
-  linhas.forEach(linha => {
-    const match = linha.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);
-    if (!match) return;
-    const k     = match[1].toUpperCase().replace(/\s+/g,'_');
-    const valor = parseFloat(match[2].replace(',','.'));
-    const moeda = (match[3] || 'USD').toUpperCase();
-    const id    = ID_MAP[k];
-    if (!id || isNaN(valor)) { ignorados.push(k); return; }
-    const v = carregar(mesAtual, id);
-    salvar(mesAtual, id, { orc: v.orc, real: (v.real || 0) + valor, currency: moeda });
+  var txt = document.getElementById('import-text').value.trim();
+  var fb  = document.getElementById('import-fb');
+  if (!txt) { fb.className = 'import-fb err'; fb.textContent = 'Cole o texto gerado pelo Claude antes de aplicar.'; return; }
+  var linhas = txt.split('\n');
+  var aplicados = [], ignorados = [];
+  for (var i = 0; i < linhas.length; i++) {
+    var linha = linhas[i].trim();
+    if (!linha || linha.indexOf(':') < 0) continue;
+    var match = linha.match(/^([A-Z_0-9]+)\s*:\s*([\d.,]+)\s*([A-Z]{3})?/i);
+    if (!match) continue;
+    var k     = match[1].toUpperCase().replace(/\s+/g, '_');
+    var valor = parseFloat(match[2].replace(',', '.'));
+    var moeda = match[3] ? match[3].toUpperCase() : 'USD';
+    var id    = ID_MAP[k];
+    if (!id || isNaN(valor)) { ignorados.push(k); continue; }
+    var v = carregar(mesAtual, id);
+    salvar(mesAtual, id, {orc: v.orc, real: (v.real || 0) + valor, currency: moeda});
     aplicados.push(k);
-  });
+  }
   renderTudo(mesAtual);
   if (aplicados.length > 0) {
-    fb.className = 'import-feedback ok';
+    fb.className = 'import-fb ok';
     fb.textContent = '✓ ' + aplicados.length + ' categoria(s) atualizada(s): ' + aplicados.join(', ') +
       (ignorados.length ? '  ·  Ignoradas: ' + ignorados.join(', ') : '');
   } else {
-    fb.className = 'import-feedback err';
+    fb.className = 'import-fb err';
     fb.textContent = 'Nenhuma categoria reconhecida. Verifique o formato (CATEGORIA: valor USD/BRL).';
   }
 }
 
 function limparImport() {
   document.getElementById('import-text').value = '';
-  const fb = document.getElementById('import-feedback');
-  fb.className = 'import-feedback'; fb.textContent = '';
+  var fb = document.getElementById('import-fb');
+  fb.className = 'import-fb';
+  fb.textContent = '';
 }
 
-function setCurrency(c) {
-  modalCurrency = c;
-  document.getElementById('btn-usd').className = c==='USD' ? 'active' : '';
-  document.getElementById('btn-brl').className = c==='BRL' ? 'active' : '';
+function setCurr(c) {
+  modalCurr = c;
+  document.getElementById('btn-usd').className = c === 'USD' ? 'active' : '';
+  document.getElementById('btn-brl').className = c === 'BRL' ? 'active' : '';
   atualizarConvModal();
 }
 
 function atualizarConvModal() {
-  const orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
-  const real = parseFloat(document.getElementById('modal-real').value) || 0;
-  if (modalCurrency === 'BRL' && (orc > 0 || real > 0)) {
-    document.getElementById('modal-conv').textContent =
-      'Taxa: R$ 1 = $ ' + brlToUsd.toFixed(4) + ' · ' +
-      (orc  > 0 ? 'Orçado → ' + fmtUSD(orc*brlToUsd) + '  ' : '') +
-      (real > 0 ? 'Realizado → ' + fmtUSD(real*brlToUsd) : '');
-  } else { document.getElementById('modal-conv').textContent = ''; }
+  var orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
+  var real = parseFloat(document.getElementById('modal-real').value) || 0;
+  var conv = document.getElementById('modal-conv');
+  if (modalCurr === 'BRL' && (orc > 0 || real > 0)) {
+    conv.textContent = 'Taxa: R$ 1 = $ ' + brlToUsd.toFixed(4) +
+      (orc  > 0 ? '  ·  Orçado → '    + fmtUSD(orc  * brlToUsd) : '') +
+      (real > 0 ? '  ·  Realizado → ' + fmtUSD(real * brlToUsd) : '');
+  } else { conv.textContent = ''; }
 }
 
-function abrirModal(mes, id, nome, isBrlNativo) {
-  const v = carregar(mes, id);
-  const savedCurrency = v.currency || (isBrlNativo ? 'BRL' : 'USD');
-  modalCtx = { mes, id }; modalCurrency = savedCurrency;
+function abrirModal(mes, id, nome, isBrl) {
+  var v = carregar(mes, id);
+  var sc = v.currency || (isBrl ? 'BRL' : 'USD');
+  modalCtx = {mes: mes, id: id};
+  modalCurr = sc;
   document.getElementById('modal-title').textContent = nome;
   document.getElementById('modal-orc').value  = v.orc  || '';
   document.getElementById('modal-real').value = v.real || '';
-  document.getElementById('btn-usd').className = savedCurrency==='USD' ? 'active' : '';
-  document.getElementById('btn-brl').className = savedCurrency==='BRL' ? 'active' : '';
+  document.getElementById('btn-usd').className = sc === 'USD' ? 'active' : '';
+  document.getElementById('btn-brl').className = sc === 'BRL' ? 'active' : '';
   atualizarConvModal();
   document.getElementById('modal-bg').classList.add('open');
 }
 
-function fecharModal() { document.getElementById('modal-bg').classList.remove('open'); modalCtx = null; }
+function fecharModal() {
+  document.getElementById('modal-bg').classList.remove('open');
+  modalCtx = null;
+}
 
 function salvarModal() {
   if (!modalCtx) return;
-  const orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
-  const real = parseFloat(document.getElementById('modal-real').value) || 0;
-  salvar(modalCtx.mes, modalCtx.id, { orc, real, currency: modalCurrency });
-  fecharModal(); renderTudo(mesAtual);
+  var orc  = parseFloat(document.getElementById('modal-orc').value)  || 0;
+  var real = parseFloat(document.getElementById('modal-real').value) || 0;
+  salvar(modalCtx.mes, modalCtx.id, {orc: orc, real: real, currency: modalCurr});
+  fecharModal();
+  renderTudo(mesAtual);
 }
 
-function trocarMes() { mesAtual = document.getElementById('mes-sel').value; renderTudo(mesAtual); }
+function trocarMes() {
+  mesAtual = document.getElementById('mes-sel').value;
+  renderTudo(mesAtual);
+}
 
 async function atualizarCotacao() {
-  const el = document.getElementById('dolar-val');
+  var el = document.getElementById('dolar-val');
   el.textContent = '...';
   try {
-    const r = await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
-    const j = await r.json();
+    var r = await fetch('https://api.exchangerate-api.com/v4/latest/BRL');
+    var j = await r.json();
     if (j.rates && j.rates.USD) brlToUsd = j.rates.USD;
     el.textContent = brlToUsd.toFixed(4);
     document.getElementById('rate-note').textContent = 'Cotação atualizada · R$ 1 = $ ' + brlToUsd.toFixed(4);
     renderTudo(mesAtual);
-  } catch(e) { el.textContent = brlToUsd.toFixed(4); }
+  } catch(e) {
+    el.textContent = brlToUsd.toFixed(4);
+  }
 }
 
-document.getElementById('modal-bg').addEventListener('click', function(e) { if(e.target===this) fecharModal(); });
+document.getElementById('modal-bg').addEventListener('click', function(e) {
+  if (e.target === this) fecharModal();
+});
 document.getElementById('modal-orc').addEventListener('input', atualizarConvModal);
 document.getElementById('modal-real').addEventListener('input', atualizarConvModal);
 
-gerarMeses(); atualizarCotacao(); renderTudo(mesAtual);
+gerarMeses();
+atualizarCotacao();
+renderTudo(mesAtual);
 </script>
 
 
