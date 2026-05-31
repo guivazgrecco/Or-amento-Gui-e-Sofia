@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_6.html -->
+<!-- saved from url=(0045)file:///C:/Users/sofia/Downloads/index_7.html -->
 <html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,155 +8,176 @@
 <link href="./Dashboard · Gui &amp; Sofia_files/css2" rel="stylesheet">
 <link rel="stylesheet" href="./Dashboard · Gui &amp; Sofia_files/tabler-icons.min.css">
 <style>
-:root {
-  --bg: #0f0f11;
-  --bg2: #161618;
-  --bg3: #1e1e22;
-  --border: #2a2a30;
-  --border2: #363640;
-  --text: #f0f0f2;
-  --muted: #6b6b78;
-  --muted2: #4a4a55;
-  --green: #34d399;
-  --green-dim: #0d2e22;
-  --red: #f87171;
-  --red-dim: #2d1010;
-  --amber: #fbbf24;
-  --amber-dim: #2d2008;
-  --blue: #60a5fa;
-  --blue-dim: #0d1e38;
-  --purple: #a78bfa;
-  --accent: #6366f1;
+:root{
+  --bg:#f4f3ef;
+  --card:#ffffff;
+  --card2:#f9f8f5;
+  --border:#e8e6de;
+  --border2:#d4d1c7;
+  --text:#1a1916;
+  --muted:#8a8778;
+  --muted2:#bab8ae;
+  --green:#15803d;
+  --green-bg:#dcfce7;
+  --red:#b91c1c;
+  --red-bg:#fee2e2;
+  --amber:#92400e;
+  --amber-bg:#fef3c7;
+  --blue:#1d4ed8;
+  --blue-bg:#dbeafe;
+  --accent:#4f46e5;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
-.wrap{max-width:1040px;margin:0 auto;padding:2rem 1.5rem 5rem;}
+.wrap{max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem;}
 
-/* TOP */
+/* HEADER */
 .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:12px;}
 .brand{display:flex;align-items:center;gap:12px;}
-.brand-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),var(--purple));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;}
-.brand h1{font-size:18px;font-weight:600;letter-spacing:-0.3px;}
+.brand-ico{width:42px;height:42px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;}
+.brand h1{font-size:18px;font-weight:700;letter-spacing:-.4px;}
 .brand p{font-size:12px;color:var(--muted);margin-top:2px;}
 .top-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-.rate-btn{font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--blue);background:var(--blue-dim);padding:7px 13px;border-radius:8px;border:1px solid #1a3a5c;cursor:pointer;display:flex;align-items:center;gap:5px;font-weight:500;transition:opacity .2s;}
+.rate-btn{font-size:12px;font-family:'JetBrains Mono',monospace;color:var(--blue);background:var(--blue-bg);padding:7px 13px;border-radius:8px;border:1px solid #bfdbfe;cursor:pointer;display:flex;align-items:center;gap:5px;font-weight:500;}
 .rate-btn:hover{opacity:.8;}
-.mes-sel{font-size:13px;font-family:'Inter',sans-serif;padding:7px 11px;border-radius:8px;border:1px solid var(--border2);background:var(--bg3);color:var(--text);cursor:pointer;font-weight:500;}
+.mes-sel{font-size:13px;padding:7px 11px;border-radius:8px;border:1px solid var(--border2);background:var(--card);color:var(--text);cursor:pointer;font-weight:500;}
 
 /* KPIS */
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;}
-@media(max-width:700px){.kpis{grid-template-columns:repeat(2,1fr);}}
-.kpi{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
-.kpi.hi{background:linear-gradient(135deg,var(--accent) 0%,var(--purple) 100%);border-color:transparent;}
-.kpi-lbl{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;display:flex;align-items:center;gap:5px;}
-.kpi.hi .kpi-lbl{color:rgba(255,255,255,.6);}
-.kpi-val{font-size:26px;font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:-1px;}
+@media(max-width:600px){.kpis{grid-template-columns:repeat(2,1fr);}}
+.kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;}
+.kpi.hi{background:var(--accent);border-color:var(--accent);}
+.kpi-lbl{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.kpi.hi .kpi-lbl{color:rgba(255,255,255,.65);}
+.kpi-val{font-size:24px;font-weight:700;font-family:'JetBrains Mono',monospace;letter-spacing:-1px;}
 .kpi.hi .kpi-val{color:#fff;}
 .kpi-val.ok{color:var(--green);}
 .kpi-val.bad{color:var(--red);}
-.kpi-sub{font-size:11px;color:var(--muted);margin-top:5px;}
+.kpi-sub{font-size:11px;color:var(--muted);margin-top:4px;}
 .kpi.hi .kpi-sub{color:rgba(255,255,255,.5);}
 
 /* META */
-.meta-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;}
-.meta-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.meta-lbl{font-size:13px;font-weight:500;}
+.meta-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;}
+.meta-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.meta-lbl{font-size:13px;font-weight:600;}
 .meta-pct{font-size:14px;font-weight:700;font-family:'JetBrains Mono',monospace;}
 .meta-pct.ok{color:var(--green);}
-.meta-pct.warn{color:var(--amber);}
+.meta-pct.warn{color:#d97706;}
 .meta-pct.bad{color:var(--red);}
-.bar-bg{height:6px;background:var(--bg3);border-radius:99px;overflow:hidden;}
-.bar-fill{height:100%;border-radius:99px;transition:width .6s ease;}
+.bar-bg{height:8px;background:var(--bg);border-radius:99px;overflow:hidden;border:1px solid var(--border);}
+.bar-fill{height:100%;border-radius:99px;transition:width .6s;}
 .bar-fill.ok{background:var(--green);}
-.bar-fill.warn{background:var(--amber);}
+.bar-fill.warn{background:#d97706;}
 .bar-fill.bad{background:var(--red);}
-.meta-bot{display:flex;justify-content:space-between;margin-top:8px;}
+.meta-bot{display:flex;justify-content:space-between;margin-top:6px;}
 .meta-bot span{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;}
 
 /* IMPORT */
-.import-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:16px;}
+.import-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:16px;}
 .import-hd{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
 .import-hd strong{font-size:14px;font-weight:600;}
-.import-hd .chip{font-size:10px;background:var(--blue-dim);color:var(--blue);padding:3px 8px;border-radius:99px;font-weight:600;border:1px solid #1a3a5c;}
-textarea{width:100%;font-size:12px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border2);border-radius:10px;padding:12px 14px;background:var(--bg3);color:var(--text);resize:vertical;min-height:88px;outline:none;line-height:1.8;}
+.chip{font-size:10px;background:var(--blue-bg);color:var(--blue);padding:3px 8px;border-radius:99px;font-weight:600;border:1px solid #bfdbfe;}
+textarea{width:100%;font-size:12px;font-family:'JetBrains Mono',monospace;border:1px solid var(--border2);border-radius:10px;padding:12px 14px;background:var(--card2);color:var(--text);resize:vertical;min-height:80px;outline:none;line-height:1.8;}
 textarea:focus{border-color:var(--accent);}
-textarea::placeholder{color:var(--muted2);}
 .import-ft{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;}
 .import-hint{font-size:11px;color:var(--muted);}
 .import-btns{display:flex;gap:8px;}
-.btn-ghost{font-size:12px;padding:7px 14px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;}
-.btn-ghost:hover{background:var(--bg3);color:var(--text);}
-.btn-solid{font-size:12px;padding:7px 16px;border-radius:8px;border:none;background:var(--accent);color:#fff;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;display:inline-flex;align-items:center;gap:5px;transition:.15s;}
+.btn-ghost{font-size:12px;padding:7px 14px;border-radius:8px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;}
+.btn-ghost:hover{background:var(--card2);}
+.btn-solid{font-size:12px;padding:7px 16px;border-radius:8px;border:none;background:var(--accent);color:#fff;cursor:pointer;font-weight:600;display:inline-flex;align-items:center;gap:5px;}
 .btn-solid:hover{opacity:.85;}
 .import-fb{font-size:12px;margin-top:10px;padding:9px 13px;border-radius:8px;display:none;font-weight:500;}
-.import-fb.ok{display:block;background:var(--green-dim);color:var(--green);border:1px solid #1a4a36;}
-.import-fb.err{display:block;background:var(--red-dim);color:var(--red);border:1px solid #4a1a1a;}
+.import-fb.ok{display:block;background:var(--green-bg);color:var(--green);}
+.import-fb.err{display:block;background:var(--red-bg);color:var(--red);}
 
-/* SECTIONS */
-.sections{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-@media(max-width:680px){.sections{grid-template-columns:1fr;}}
-.sf{grid-column:1/-1;}
-.sec{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:20px;}
+/* SECOES — todas empilhadas verticalmente, largura total */
+.sec{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-bottom:10px;}
 .sec-hd{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.sec-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.ic-g{background:var(--green-dim);color:var(--green);}
-.ic-b{background:var(--blue-dim);color:var(--blue);}
-.ic-a{background:var(--amber-dim);color:var(--amber);}
-.ic-r{background:var(--red-dim);color:var(--red);}
-.sec-hd h2{font-size:14px;font-weight:600;letter-spacing:-.2px;}
+.sec-ico{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+.ic-g{background:var(--green-bg);color:var(--green);}
+.ic-b{background:var(--blue-bg);color:var(--blue);}
+.ic-a{background:var(--amber-bg);color:var(--amber);}
+.ic-r{background:var(--red-bg);color:var(--red);}
+.sec-hd h2{font-size:14px;font-weight:700;}
 
-/* TABLE — chave do problema: layout fixed + larguras explícitas */
+/* TABELA — layout fixed, colunas explícitas */
 .tbl{width:100%;border-collapse:collapse;table-layout:fixed;}
-.tbl col.c-name{width:auto;}
-.tbl col.c-num{width:82px;}
-.tbl col.c-quick{width:96px;}
-.tbl col.c-act{width:64px;}
-.tbl thead th{font-size:10px;font-weight:600;color:var(--muted2);text-transform:uppercase;letter-spacing:.5px;text-align:right;padding:0 6px 10px;border-bottom:1px solid var(--border);}
+.tbl col.cn{width:auto;}        /* nome: ocupa o resto */
+.tbl col.cv{width:90px;}        /* orçado / realizado */
+.tbl col.cq{width:110px;}       /* + rápido */
+.tbl col.ca{width:72px;}        /* ações */
+
+.tbl thead th{
+  font-size:10px;font-weight:600;color:var(--muted2);
+  text-transform:uppercase;letter-spacing:.5px;
+  text-align:right;padding:0 8px 10px;
+  border-bottom:1px solid var(--border);
+}
 .tbl thead th:first-child{text-align:left;padding-left:0;}
 .tbl thead th:last-child{padding-right:0;}
-.tbl tbody tr{transition:background .1s;}
-.tbl tbody tr:hover{background:var(--bg3);}
-.tbl tbody td{font-size:13px;padding:9px 6px;border-bottom:1px solid var(--border);vertical-align:middle;overflow:hidden;}
+
+.tbl tbody tr:hover{background:var(--card2);}
+.tbl tbody td{
+  font-size:13px;padding:9px 8px;
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;
+}
 .tbl tbody tr:last-child td{border-bottom:none;}
 .tbl tbody td:first-child{padding-left:0;}
 .tbl tbody td:last-child{padding-right:0;}
-.td-name{display:flex;align-items:center;gap:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.tag-brl{font-size:9px;padding:2px 5px;border-radius:5px;background:var(--amber-dim);color:var(--amber);font-weight:700;letter-spacing:.2px;flex-shrink:0;}
-.td-n{text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;}
-.td-n.orc{color:var(--muted);}
-.td-n.over{color:var(--red);font-weight:600;}
-.td-n.ok{color:var(--green);font-weight:500;}
-.td-n.zero{color:var(--muted2);}
-/* Quick input */
-.qrow{display:flex;align-items:center;gap:3px;justify-content:flex-end;}
-.qi{width:52px;font-size:11px;font-family:'JetBrains Mono',monospace;padding:5px 6px;border:1px solid var(--border2);border-radius:7px;background:var(--bg3);color:var(--text);outline:none;text-align:right;min-width:0;}
+
+/* Nome */
+.td-name{display:flex;align-items:center;gap:7px;}
+.tag-brl{font-size:9px;padding:2px 5px;border-radius:5px;background:var(--amber-bg);color:var(--amber);font-weight:700;flex-shrink:0;}
+
+/* Valores */
+.td-v{text-align:right;font-family:'JetBrains Mono',monospace;font-size:12px;white-space:nowrap;}
+.td-v.orc{color:var(--muted);}
+.td-v.over{color:var(--red);font-weight:600;}
+.td-v.ok{color:var(--green);font-weight:600;}
+.td-v.zero{color:var(--muted2);}
+
+/* + rápido */
+.qrow{display:flex;align-items:center;gap:4px;justify-content:flex-end;}
+.qi{
+  width:56px;font-size:12px;font-family:'JetBrains Mono',monospace;
+  padding:5px 7px;border:1px solid var(--border2);border-radius:7px;
+  background:var(--card2);color:var(--text);outline:none;text-align:right;
+}
 .qi:focus{border-color:var(--accent);}
-.qbtn{background:none;border:none;cursor:pointer;color:var(--green);font-size:20px;padding:1px 2px;border-radius:5px;display:flex;align-items:center;line-height:1;flex-shrink:0;}
-.qbtn:hover{background:var(--green-dim);}
-/* Action btns */
-.act-wrap{display:flex;align-items:center;justify-content:flex-end;gap:2px;}
-.abtn{background:none;border:none;cursor:pointer;font-size:15px;padding:4px 5px;border-radius:6px;display:inline-flex;align-items:center;color:var(--muted2);transition:.15s;flex-shrink:0;}
-.abtn:hover{background:var(--bg3);color:var(--text);}
-.abtn.del:hover{background:var(--red-dim);color:var(--red);}
+.qbtn{
+  background:none;border:none;cursor:pointer;
+  color:var(--green);font-size:22px;padding:0 2px;
+  border-radius:5px;display:flex;align-items:center;line-height:1;flex-shrink:0;
+}
+.qbtn:hover{background:var(--green-bg);}
+
+/* Ações */
+.act{display:flex;align-items:center;justify-content:flex-end;gap:2px;}
+.abtn{
+  background:none;border:none;cursor:pointer;font-size:15px;
+  padding:4px 5px;border-radius:6px;
+  display:inline-flex;align-items:center;color:var(--muted2);
+}
+.abtn:hover{background:var(--card2);color:var(--text);}
+.abtn.del:hover{background:var(--red-bg);color:var(--red);}
 
 /* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
 .overlay.open{display:flex;}
-.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:18px;padding:26px;width:370px;max-width:94vw;box-shadow:0 30px 80px rgba(0,0,0,.5);}
-.modal h3{font-size:17px;font-weight:700;margin-bottom:4px;letter-spacing:-.3px;}
+.modal{background:#fff;border-radius:18px;padding:26px;width:370px;max-width:94vw;box-shadow:0 25px 70px rgba(0,0,0,.15);}
+.modal h3{font-size:16px;font-weight:700;margin-bottom:4px;}
 .modal-sub{font-size:12px;color:var(--muted);margin-bottom:20px;}
-.modal label{font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.4px;}
-.modal input[type=number]{width:100%;padding:10px 13px;font-size:14px;font-family:'JetBrains Mono',monospace;border:1.5px solid var(--border2);border-radius:9px;margin-bottom:14px;outline:none;background:var(--bg3);color:var(--text);}
+.modal label{font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px;}
+.modal input[type=number]{width:100%;padding:10px 12px;font-size:14px;font-family:'JetBrains Mono',monospace;border:1.5px solid var(--border2);border-radius:9px;margin-bottom:14px;outline:none;background:var(--card2);color:var(--text);}
 .modal input[type=number]:focus{border-color:var(--accent);}
 .curr-row{display:flex;gap:6px;margin-bottom:16px;}
-.cbtn{flex:1;padding:8px;font-size:12px;font-family:'Inter',sans-serif;font-weight:600;border-radius:8px;border:1.5px solid var(--border2);background:var(--bg3);color:var(--muted);cursor:pointer;transition:.15s;}
-.cbtn.active{border-color:var(--accent);background:rgba(99,102,241,.15);color:var(--accent);}
+.cbtn{flex:1;padding:8px;font-size:12px;font-weight:600;border-radius:8px;border:1.5px solid var(--border2);background:var(--card2);color:var(--muted);cursor:pointer;}
+.cbtn.active{border-color:var(--accent);background:var(--blue-bg);color:var(--accent);}
 .conv-note{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;min-height:16px;margin-bottom:14px;}
 .modal-btns{display:flex;gap:8px;justify-content:flex-end;}
-.modal-btns button{font-size:13px;padding:9px 18px;border-radius:9px;border:1px solid var(--border2);background:var(--bg3);color:var(--text);cursor:pointer;font-family:'Inter',sans-serif;font-weight:500;transition:.15s;}
-.modal-btns button:hover{background:var(--border);}
+.modal-btns button{font-size:13px;padding:9px 18px;border-radius:9px;border:1px solid var(--border2);background:var(--card2);color:var(--text);cursor:pointer;font-weight:500;}
 .modal-btns button.save{background:var(--accent);color:#fff;border-color:var(--accent);}
-.modal-btns button.save:hover{opacity:.85;}
 </style>
 </head>
 <body>
@@ -164,7 +185,7 @@ textarea::placeholder{color:var(--muted2);}
 
   <div class="top">
     <div class="brand">
-      <div class="brand-icon"><i class="ti ti-chart-donut-3"></i></div>
+      <div class="brand-ico"><i class="ti ti-chart-donut-3"></i></div>
       <div>
         <h1>Dashboard financeiro</h1>
         <p>Guilherme &amp; Sofia · tudo em USD</p>
@@ -180,22 +201,22 @@ textarea::placeholder{color:var(--muted2);}
 
   <div class="kpis">
     <div class="kpi">
-      <div class="kpi-lbl"><i class="ti ti-arrow-up" style="font-size:12px"></i> Receita</div>
+      <div class="kpi-lbl">Receita</div>
       <div class="kpi-val" id="kpi-rec">$0</div>
       <div class="kpi-sub">realizado</div>
     </div>
     <div class="kpi">
-      <div class="kpi-lbl"><i class="ti ti-arrow-down" style="font-size:12px"></i> Despesas</div>
+      <div class="kpi-lbl">Despesas</div>
       <div class="kpi-val" id="kpi-desp">$0</div>
       <div class="kpi-sub">realizado</div>
     </div>
     <div class="kpi">
-      <div class="kpi-lbl"><i class="ti ti-scale" style="font-size:12px"></i> Saldo</div>
+      <div class="kpi-lbl">Saldo</div>
       <div class="kpi-val ok" id="kpi-saldo">$0</div>
       <div class="kpi-sub">receita − despesas</div>
     </div>
     <div class="kpi hi">
-      <div class="kpi-lbl"><i class="ti ti-target" style="font-size:12px"></i> Meta mensal</div>
+      <div class="kpi-lbl">Meta mensal</div>
       <div class="kpi-val" id="kpi-meta">$1,980</div>
       <div class="kpi-sub" id="kpi-meta-sub">faltam $1,980</div>
     </div>
@@ -233,42 +254,49 @@ GASOLINA: 200.00 BRL"></textarea>
     <div class="import-fb" id="import-fb"></div>
   </div>
 
-  <div class="sections">
-    <div class="sec sf">
-      <div class="sec-hd"><div class="sec-ico ic-g"><i class="ti ti-coin"></i></div><h2>Receitas</h2></div>
-      <table class="tbl">
-        <colgroup><col class="c-name"><col class="c-num"><col class="c-num"><col class="c-quick"><col class="c-act"></colgroup>
-        <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
-        <tbody id="t-receitas"><tr><td><span class="td-name">Salário Guilherme<span class="tag-brl">R$→$</span></span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Bolsa FAPESP (Sofia)</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Atendimentos (Sofia)<span class="tag-brl">R$→$</span></span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
-      </table>
-    </div>
-    <div class="sec">
-      <div class="sec-hd"><div class="sec-ico ic-b"><i class="ti ti-home"></i></div><h2>Despesas fixas</h2></div>
-      <table class="tbl">
-        <colgroup><col class="c-name"><col class="c-num"><col class="c-num"><col class="c-quick"><col class="c-act"></colgroup>
-        <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
-        <tbody id="t-fixas"><tr><td><span class="td-name">Aluguel</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Energia</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Gás</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Internet</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Tip (cachorro)</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Mercado</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Seguro do carro</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Gasolina</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Terapia Guilherme</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Terapia Sofia</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Supervisão Sofia</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Cursos Gui</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Fies</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Investimento Clínica</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
-      </table>
-    </div>
-    <div class="sec">
-      <div class="sec-hd"><div class="sec-ico ic-a"><i class="ti ti-shopping-cart"></i></div><h2>Despesas variáveis</h2></div>
-      <table class="tbl">
-        <colgroup><col class="c-name"><col class="c-num"><col class="c-num"><col class="c-quick"><col class="c-act"></colgroup>
-        <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
-        <tbody id="t-variaveis"><tr><td><span class="td-name">Restaurante/Bar</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Delivery</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Medicamentos/Suplementos</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Gastos pessoais Gui</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Gastos pessoais Sofia</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
-      </table>
-    </div>
-    <div class="sec sf">
-      <div class="sec-hd"><div class="sec-ico ic-r"><i class="ti ti-sparkles"></i></div><h2>Extras</h2></div>
-      <table class="tbl">
-        <colgroup><col class="c-name"><col class="c-num"><col class="c-num"><col class="c-quick"><col class="c-act"></colgroup>
-        <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
-        <tbody id="t-extras"><tr><td><span class="td-name">Eventualidades</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Presentes</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Compras pra casa</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><span class="td-name">Uber</span></td><td class="td-n orc">—</td><td class="td-n zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn" title="Somar"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act-wrap"><button class="abtn" title="Editar"><i class="ti ti-pencil"></i></button><button class="abtn del" title="Zerar"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
-      </table>
-    </div>
+  <!-- RECEITAS -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-ico ic-g"><i class="ti ti-coin"></i></div><h2>Receitas</h2></div>
+    <table class="tbl">
+      <colgroup><col class="cn"><col class="cv"><col class="cv"><col class="cq"><col class="ca"></colgroup>
+      <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-receitas"><tr><td><div class="td-name">Salário Guilherme<span class="tag-brl">R$→$</span></div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Bolsa FAPESP (Sofia)</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Atendimentos (Sofia)<span class="tag-brl">R$→$</span></div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
+    </table>
   </div>
+
+  <!-- DESPESAS FIXAS -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-ico ic-b"><i class="ti ti-home"></i></div><h2>Despesas fixas</h2></div>
+    <table class="tbl">
+      <colgroup><col class="cn"><col class="cv"><col class="cv"><col class="cq"><col class="ca"></colgroup>
+      <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-fixas"><tr><td><div class="td-name">Aluguel</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Energia</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Gás</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Internet</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Tip (cachorro)</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Mercado</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Seguro do carro</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Gasolina</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Terapia Guilherme</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Terapia Sofia</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Supervisão Sofia</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Cursos Gui</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Fies</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Investimento Clínica</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- DESPESAS VARIÁVEIS -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-ico ic-a"><i class="ti ti-shopping-cart"></i></div><h2>Despesas variáveis</h2></div>
+    <table class="tbl">
+      <colgroup><col class="cn"><col class="cv"><col class="cv"><col class="cq"><col class="ca"></colgroup>
+      <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-variaveis"><tr><td><div class="td-name">Restaurante/Bar</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Delivery</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Medicamentos/Suplementos</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Gastos pessoais Gui</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Gastos pessoais Sofia</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
+    </table>
+  </div>
+
+  <!-- EXTRAS -->
+  <div class="sec">
+    <div class="sec-hd"><div class="sec-ico ic-r"><i class="ti ti-sparkles"></i></div><h2>Extras</h2></div>
+    <table class="tbl">
+      <colgroup><col class="cn"><col class="cv"><col class="cv"><col class="cq"><col class="ca"></colgroup>
+      <thead><tr><th>Item</th><th>Orçado</th><th>Realizado</th><th>+ rápido</th><th></th></tr></thead>
+      <tbody id="t-extras"><tr><td><div class="td-name">Eventualidades</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Presentes</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Compras pra casa</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr><tr><td><div class="td-name">Uber</div></td><td class="td-v orc">—</td><td class="td-v zero">—</td><td><div class="qrow"><input class="qi" type="number" placeholder="0" min="0" step="0.01"><button class="qbtn"><i class="ti ti-circle-plus"></i></button></div></td><td><div class="act"><button class="abtn"><i class="ti ti-pencil"></i></button><button class="abtn del"><i class="ti ti-trash"></i></button></div></td></tr></tbody>
+    </table>
+  </div>
+
 </div>
 
+<!-- MODAL -->
 <div class="overlay" id="overlay">
   <div class="modal">
     <h3 id="m-title">Editar item</h3>
@@ -293,8 +321,8 @@ GASOLINA: 200.00 BRL"></textarea>
 var CATS={
   receitas:[
     {id:'sal_gui',nome:'Salário Guilherme',brl:true},
-    {id:'fapesp', nome:'Bolsa FAPESP (Sofia)',brl:false},
-    {id:'atend',  nome:'Atendimentos (Sofia)',brl:true}
+    {id:'fapesp',nome:'Bolsa FAPESP (Sofia)',brl:false},
+    {id:'atend',nome:'Atendimentos (Sofia)',brl:true}
   ],
   fixas:[
     {id:'aluguel',nome:'Aluguel'},{id:'energia',nome:'Energia'},
@@ -359,22 +387,22 @@ function renderTable(tbodyId,items,m){
 
     // Nome
     var td1=document.createElement('td');
-    var nw=document.createElement('span');nw.className='td-name';
-    var nt=document.createTextNode(it.nome);nw.appendChild(nt);
+    var nw=document.createElement('div');nw.className='td-name';
+    nw.appendChild(document.createTextNode(it.nome));
     if(it.brl||cur==='BRL'){var tg=document.createElement('span');tg.className='tag-brl';tg.textContent='R$→$';nw.appendChild(tg);}
     td1.appendChild(nw);
 
     // Orçado
-    var td2=document.createElement('td');td2.className='td-n orc';td2.textContent=oU>0?fmt(oU):'—';
+    var td2=document.createElement('td');td2.className='td-v orc';td2.textContent=oU>0?fmt(oU):'—';
 
     // Realizado
-    var td3=document.createElement('td');td3.className='td-n '+rc;td3.textContent=rU>0?fmt(rU):'—';
+    var td3=document.createElement('td');td3.className='td-v '+rc;td3.textContent=rU>0?fmt(rU):'—';
 
     // + rápido
     var td4=document.createElement('td');
     var qr=document.createElement('div');qr.className='qrow';
     var qi=document.createElement('input');qi.className='qi';qi.type='number';qi.placeholder='0';qi.min='0';qi.step='0.01';
-    var qb=document.createElement('button');qb.className='qbtn';qb.title='Somar';qb.innerHTML='<i class="ti ti-circle-plus"></i>';
+    var qb=document.createElement('button');qb.className='qbtn';qb.innerHTML='<i class="ti ti-circle-plus"></i>';
     (function(mid,iid,inp,ibrl){
       inp.addEventListener('keydown',function(e){if(e.key==='Enter')somar(mid,iid,inp,ibrl);});
       qb.addEventListener('click',function(){somar(mid,iid,inp,ibrl);});
@@ -383,9 +411,9 @@ function renderTable(tbodyId,items,m){
 
     // Ações
     var td5=document.createElement('td');
-    var aw=document.createElement('div');aw.className='act-wrap';
-    var eb=document.createElement('button');eb.className='abtn';eb.title='Editar';eb.innerHTML='<i class="ti ti-pencil"></i>';
-    var db=document.createElement('button');db.className='abtn del';db.title='Zerar';db.innerHTML='<i class="ti ti-trash"></i>';
+    var aw=document.createElement('div');aw.className='act';
+    var eb=document.createElement('button');eb.className='abtn';eb.innerHTML='<i class="ti ti-pencil"></i>';
+    var db=document.createElement('button');db.className='abtn del';db.innerHTML='<i class="ti ti-trash"></i>';
     (function(mid,iid,iname,ibrl){
       eb.addEventListener('click',function(){abrirModal(mid,iid,iname,ibrl);});
       db.addEventListener('click',function(){zerarItem(mid,iid);});
@@ -454,7 +482,7 @@ function limparImport(){document.getElementById('import-txt').value='';var fb=do
 function setCurr(c){mCurr=c;document.getElementById('b-usd').className='cbtn'+(c==='USD'?' active':'');document.getElementById('b-brl').className='cbtn'+(c==='BRL'?' active':'');convNote();}
 function convNote(){
   var o=parseFloat(document.getElementById('m-orc').value)||0,r=parseFloat(document.getElementById('m-real').value)||0,el=document.getElementById('m-conv');
-  if(mCurr==='BRL'&&(o>0||r>0)){el.textContent='R$1 = $'+usd.toFixed(4)+(o>0?' · orçado→'+fmt(o*usd):'')+(r>0?' · realizado→'+fmt(r*usd):'');}
+  if(mCurr==='BRL'&&(o>0||r>0)){el.textContent='R$1=$'+usd.toFixed(4)+(o>0?' · orçado→'+fmt(o*usd):'')+(r>0?' · realizado→'+fmt(r*usd):'');}
   else el.textContent='';
 }
 function abrirModal(m,id,nome,ibrl){
